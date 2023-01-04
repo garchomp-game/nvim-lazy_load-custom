@@ -1,0 +1,20 @@
+{
+  "fzf": { "branch": "master", "commit": "5798145581c6b2de18f14c9e1a2e11ec3251c434" },
+  "fzf.vim": { "branch": "master", "commit": "0f03107bc94b31a9c7adcee6da8e5de7492e4b0b" },
+  "lazy.nvim": { "branch": "main", "commit": "a11a317a922d4a343e611bed6629fe5a11d2cb82" },
+  "mason.nvim": { "branch": "main", "commit": "dac1093be4f833da1696767c5badac9a3665c1df" },
+  "neoconf.nvim": { "branch": "main", "commit": "59f70d7c6a8411914cfdddd97c87f2312e935000" },
+  "neodev.nvim": { "branch": "main", "commit": "a6cd21560f88b54d8f8ddd1cd145be3ed4a051bc" },
+  "nerdtree": { "branch": "master", "commit": "fc85a6f07c2cd694be93496ffad75be126240068" },
+  "nvim-treesitter": { "branch": "master", "commit": "27d8fdc6a6662cb6142b784a3692040e7ec3b4ec" },
+  "prettier.nvim": { "branch": "main", "commit": "918b99f5ddd7a56395fd393767ab6a3c15a50789" },
+  "quick-scope": { "branch": "master", "commit": "428e8698347f254d24b248af9f656194a80081e5" },
+  "tabular": { "branch": "master", "commit": "339091ac4dd1f17e225fe7d57b48aff55f99b23a" },
+  "tagbar": { "branch": "master", "commit": "af3ce7c3cec81f2852bdb0a0651d2485fcd01214" },
+  "translate.vim": { "branch": "master", "commit": "7141ef44c68c06ccd7b8b3f97432330613207f80" },
+  "vim-commentary": { "branch": "master", "commit": "e87cd90dc09c2a203e13af9704bd0ef79303d755" },
+  "vim-devicons": { "branch": "master", "commit": "71f239af28b7214eebb60d4ea5bd040291fb7e33" },
+  "vim-startuptime": { "branch": "master", "commit": "cb4c112b9e0f224236ee4eab6bf5153406b3f88b" },
+  "vimdoc-ja": { "branch": "master", "commit": "e7a5e0bd0ce4759250c5d7116050bd6ef36f821c" },
+  "which-key.nvim": { "branch": "main", "commit": "8682d3003595017cd8ffb4c860a07576647cc6f8" }
+}
