@@ -58,12 +58,17 @@ return {
     'preservim/tagbar',
     event = { "CmdLineEnter", "BufRead" },
   },
+  "neovim/nvim-lspconfig",
+  "williamboman/mason-lspconfig.nvim",
   {
     'williamboman/mason.nvim',
-    event = { "CmdLineEnter", "BufRead" },
-    -- config = function()
-    --   require('plugins.config.mason')
-    -- end,
+    cmd = "Mason",
+    dependencies = {
+      "williamboman/mason-lspconfig.nvim"
+    },
+    config = function()
+      require('plugins.config.mason')
+    end,
   },
   {
     'nvim-treesitter/nvim-treesitter',
