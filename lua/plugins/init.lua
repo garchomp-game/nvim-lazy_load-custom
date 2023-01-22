@@ -1,9 +1,5 @@
 return {
   {
-    "folke/which-key.nvim",
-    event = { "CmdLineEnter", "BufRead" },
-  }, 
-  {
     "folke/neoconf.nvim",
     event = { "CmdLineEnter", "BufRead" },
   },
