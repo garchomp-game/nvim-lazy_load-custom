@@ -37,10 +37,3 @@ end
 
 require("mason").setup()
 check()
-require("mason-lspconfig").setup({
-  automatic_installation = true,
-  ensure_installed = {
-    "jdtls",
-    "tsserver",
-  },
-})

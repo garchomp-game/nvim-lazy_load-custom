@@ -1,11 +1,6 @@
 return {
 	{
 		'RRethy/nvim-base16',
-    lazy = false,
-		priority = 1000,
-		config = function()
-			vim.cmd([[colorscheme base16-ayu-dark]])
-		end,
 	},
 	{
 		'folke/neoconf.nvim',
@@ -73,6 +68,9 @@ return {
 	{
 		'williamboman/mason-lspconfig.nvim',
 		event = { 'CmdLineEnter', 'BufRead' },
+		dependencies = {
+			'williamboman/mason.nvim'
+		},
 	},
 	{
 		'hrsh7th/cmp-nvim-lsp',
@@ -148,6 +146,9 @@ return {
 	{
 		'nvim-treesitter/nvim-treesitter',
 		event = { 'CmdLineEnter', 'BufRead' },
+    config = function()
+      require('plugins.config.nvim-treesitter')
+    end,
 	},
 	{
 		'windwp/nvim-autopairs',
@@ -155,5 +156,9 @@ return {
 		config = function()
 			require('nvim-autopairs').setup {}
 		end
-	}
+	},
+  {
+    'mattn/vim-maketable',
+		event = { 'CmdLineEnter', 'BufRead' },
+  },
 }

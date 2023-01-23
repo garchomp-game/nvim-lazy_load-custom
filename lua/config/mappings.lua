@@ -10,3 +10,5 @@ vim.keymap.set('n','<C-l>','<C-w>l')
 vim.api.nvim_set_keymap('n','<A-s>',
 ':mksession! mysession.vim<CR>', { noremap = true, silent = true })
 
+vim.api.nvim_set_keymap('n','<C-space>',
+':Buffers<CR>', { noremap = true, silent = true })

@@ -3,7 +3,7 @@ let s:so_save = &g:so | let s:siso_save = &g:siso | setg so=0 siso=0 | setl so=-
 let v:this_session=expand("<sfile>:p")
 silent only
 silent tabonly
-cd ~/.config/nvim
+cd ~/workspace/vim-script-study
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
@@ -13,21 +13,19 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +1 ~/workspace/vim-script-study/main.vim
-badd +707 ~/workspace/vim-script-study/memo.md
-badd +164 lua/plugins/init.lua
-badd +10 lua/plugins/config/nvim-treesitter.lua
-badd +1 lua/plugins/config/mason.lua
-badd +1 lua/plugins/config/nvterm.lua
-badd +1 init.lua
-badd +1 lua/config/mappings.lua
-badd +1 lua
+badd +1 main.vim
+badd +707 memo.md
+badd +164 ~/.config/nvim/lua/plugins/init.lua
+badd +10 ~/.config/nvim/lua/plugins/config/nvim-treesitter.lua
+badd +1 ~/.config/nvim/lua/plugins/config/mason.lua
+badd +1 ~/.config/nvim/lua/plugins/config/nvterm.lua
+badd +0 ~/.config/nvim/init.lua
 argglobal
 %argdel
 set stal=2
 tabnew +setlocal\ bufhidden=wipe
 tabrewind
-edit ~/workspace/vim-script-study/main.vim
+edit main.vim
 let s:save_splitbelow = &splitbelow
 let s:save_splitright = &splitright
 set splitbelow splitright
@@ -154,6 +152,7 @@ lcd ~/.config/nvim/lua
 wincmd w
 exe 'vert 1resize ' . ((&columns * 95 + 95) / 191)
 exe 'vert 2resize ' . ((&columns * 95 + 95) / 191)
+if exists(':tcd') == 2 | tcd ~/.config/nvim/lua | endif
 tabnext 2
 set stal=1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
