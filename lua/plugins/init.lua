@@ -54,11 +54,78 @@ return {
     'preservim/tagbar',
     event = { "CmdLineEnter", "BufRead" },
   },
-  "neovim/nvim-lspconfig",
-  "williamboman/mason-lspconfig.nvim",
+  {
+    "neovim/nvim-lspconfig",
+    event = { "CmdLineEnter", "BufRead" },
+    config = function()
+      require 'plugins.config.nvim-lspconfig'
+    end,
+  },
+  {
+    "williamboman/mason-lspconfig.nvim",
+    event = { "CmdLineEnter", "BufRead" },
+  },
+  {
+    'hrsh7th/cmp-nvim-lsp',
+    event = { "CmdLineEnter", "BufRead" },
+  },
+  {
+    'hrsh7th/cmp-buffer',
+    event = { "CmdLineEnter", "BufRead" },
+  },
+  {
+    'hrsh7th/cmp-path',
+    event = { "CmdLineEnter", "BufRead" },
+  },
+  {
+    'hrsh7th/cmp-cmdline',
+    event = { "CmdLineEnter", "BufRead" },
+  },
+  {
+    'hrsh7th/nvim-cmp',
+    event = { "CmdLineEnter", "BufRead" },
+		config = function()
+			require 'plugins.config.nvim-cmp'
+		end,
+  },
+  {
+    'hrsh7th/cmp-vsnip',
+    event = { "CmdLineEnter", "BufRead" },
+  },
+  {
+    'hrsh7th/vim-vsnip',
+    event = { "CmdLineEnter", "BufRead" },
+  },
+  {
+    'L3MON4D3/LuaSnip',
+    event = { "CmdLineEnter", "BufRead" },
+  },
+  {
+    'saadparwaiz1/cmp_luasnip',
+    event = { "CmdLineEnter", "BufRead" },
+  },
+  {
+    'dcampos/nvim-snippy',
+    event = { "CmdLineEnter", "BufRead" },
+  },
+  {
+    'dcampos/cmp-snippy',
+    event = { "CmdLineEnter", "BufRead" },
+  },
+  {
+		'nvim-lua/plenary.nvim',
+    event = { "CmdLineEnter", "BufRead" },
+    dependencies = {
+      'dcampos/cmp-snippy',
+    },
+  },
+  {
+    'nvim-telescope/telescope.nvim',
+    event = { "CmdLineEnter", "BufRead" },
+  },
   {
     'williamboman/mason.nvim',
-    cmd = "Mason",
+    event = { "CmdLineEnter", "BufRead" },
     dependencies = {
       "williamboman/mason-lspconfig.nvim"
     },
