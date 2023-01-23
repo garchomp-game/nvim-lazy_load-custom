@@ -31,7 +31,6 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup(plugins, configs)
 
 
-vim.cmd("colorscheme habamax")
 vim.opt.helplang='ja,en'
 vim.opt.expandtab = true
 vim.opt.tabstop = 2
