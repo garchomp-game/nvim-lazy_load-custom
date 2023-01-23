@@ -122,6 +122,9 @@ return {
   {
     'nvim-telescope/telescope.nvim',
     event = { "CmdLineEnter", "BufRead" },
+    config = function()
+      require 'plugins.config.telescope'
+    end,
   },
   {
     'williamboman/mason.nvim',
