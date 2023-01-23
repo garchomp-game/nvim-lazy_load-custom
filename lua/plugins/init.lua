@@ -85,9 +85,9 @@ return {
   {
     'hrsh7th/nvim-cmp',
     event = { "CmdLineEnter", "BufRead" },
-		config = function()
-			require 'plugins.config.nvim-cmp'
-		end,
+    config = function()
+      require 'plugins.config.nvim-cmp'
+    end,
   },
   {
     'hrsh7th/cmp-vsnip',
@@ -114,7 +114,7 @@ return {
     event = { "CmdLineEnter", "BufRead" },
   },
   {
-		'nvim-lua/plenary.nvim',
+    'nvim-lua/plenary.nvim',
     event = { "CmdLineEnter", "BufRead" },
     dependencies = {
       'dcampos/cmp-snippy',
@@ -141,4 +141,11 @@ return {
     'nvim-treesitter/nvim-treesitter',
     event = { "CmdLineEnter", "BufRead" },
   },
+  {
+    "windwp/nvim-autopairs",
+    event = { "CmdLineEnter", "BufRead" },
+    config = function()
+      require("nvim-autopairs").setup {}
+    end
+  }
 }
