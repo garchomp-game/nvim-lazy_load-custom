@@ -43,4 +43,4 @@ vim.opt.relativenumber = false
 vim.opt.cursorcolumn = false
 vim.opt.showcmd = true
 vim.opt.ruler = true
-
+vim.opt.ignorecase = true
