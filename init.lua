@@ -15,7 +15,6 @@ if vim.fn.filereadable(home .. lombok) then
   .. lombok
 end
 
-require 'config'
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
     "git",
@@ -29,6 +28,7 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup(plugins, configs)
+require 'config'
 
 
 vim.cmd([[colorscheme base16-ayu-dark]])

@@ -168,4 +168,8 @@ return {
       require 'plugins.config.lualine'
     end,
   },
+  {
+    'lambdalisue/gina.vim',
+    event = { 'CmdLineEnter', 'BufRead' },
+  }
 }
