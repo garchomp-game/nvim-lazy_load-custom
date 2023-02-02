@@ -4,7 +4,6 @@ local myList = {
   "cssmodules-language-server",
   "html-lsp",
   "json-lsp",
-  "lua-language-server",
   "stylua",
   "shellcheck",
   "shfmt",
@@ -19,7 +18,6 @@ local myList = {
   "vim-language-server",
   "remark-language-server",
   "prettier",
-  "stylua",
   "shfmt",
   "emmet-ls",
 }
