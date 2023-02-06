@@ -152,7 +152,7 @@ return {
   {
     'lambdalisue/gina.vim',
     event = { 'CmdLineEnter', 'BufRead' },
-  }
+  },
   {
     'phaazon/mind.nvim',
     event = { 'CmdLineEnter', 'BufRead' },
