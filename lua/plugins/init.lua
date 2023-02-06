@@ -2,16 +2,16 @@ return {
   {
     'RRethy/nvim-base16',
   },
-  {
-    'folke/neoconf.nvim',
-    event = { 'CmdLineEnter', 'BufRead' },
-  },
-  {
-    'folke/neodev.nvim',
-    event = { 'CmdLineEnter', 'BufRead' },
-  }, 
+  -- プラグイン開発をサポートするdevtool系
+  -- {
+  --   'folke/neodev.nvim',
+  --   event = { 'CmdLineEnter', 'BufRead' },
+  -- }, 
   {
     'preservim/nerdtree',
+    dependencies = {
+      'ryanoasis/vim-devicons'
+    },
     event = { 'CmdLineEnter', 'BufRead' },
   }, 
   {
@@ -61,16 +61,6 @@ return {
   {
     'neovim/nvim-lspconfig',
     event = { 'CmdLineEnter', 'BufRead' },
-    config = function()
-      require 'plugins.config.nvim-lspconfig'
-    end,
-  },
-  {
-    'williamboman/mason-lspconfig.nvim',
-    event = { 'CmdLineEnter', 'BufRead' },
-    dependencies = {
-      'williamboman/mason.nvim'
-    },
   },
   {
     'hrsh7th/cmp-nvim-lsp',
@@ -96,23 +86,7 @@ return {
     end,
   },
   {
-    'hrsh7th/cmp-vsnip',
-    event = { 'CmdLineEnter', 'BufRead' },
-  },
-  {
-    'hrsh7th/vim-vsnip',
-    event = { 'CmdLineEnter', 'BufRead' },
-  },
-  {
-    'L3MON4D3/LuaSnip',
-    event = { 'CmdLineEnter', 'BufRead' },
-  },
-  {
     'saadparwaiz1/cmp_luasnip',
-    event = { 'CmdLineEnter', 'BufRead' },
-  },
-  {
-    'dcampos/nvim-snippy',
     event = { 'CmdLineEnter', 'BufRead' },
   },
   {
@@ -136,11 +110,18 @@ return {
   {
     'williamboman/mason.nvim',
     event = { 'CmdLineEnter', 'BufRead' },
-    dependencies = {
-      'williamboman/mason-lspconfig.nvim'
-    },
     config = function()
       require('plugins.config.mason')
+    end,
+  },
+  {
+    'williamboman/mason-lspconfig.nvim',
+    event = { 'CmdLineEnter', 'BufRead' },
+    dependencies = {
+      'williamboman/mason.nvim'
+    },
+    config = function()
+      require 'plugins.config.mason-lspconfig'
     end,
   },
   {
@@ -170,6 +151,10 @@ return {
   },
   {
     'lambdalisue/gina.vim',
+    event = { 'CmdLineEnter', 'BufRead' },
+  }
+  {
+    'phaazon/mind.nvim',
     event = { 'CmdLineEnter', 'BufRead' },
   }
 }
