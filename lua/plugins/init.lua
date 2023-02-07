@@ -86,11 +86,7 @@ return {
     end,
   },
   {
-    'saadparwaiz1/cmp_luasnip',
-    event = { 'CmdLineEnter', 'BufRead' },
-  },
-  {
-    'dcampos/cmp-snippy',
+    'L3MON4D3/LuaSnip',
     event = { 'CmdLineEnter', 'BufRead' },
   },
   {

@@ -1,6 +1,11 @@
 local language_server_list = {
   "jdtls",
-  "tsserver"
+  "tsserver",
+  "cssls",
+  "vimls",
+  "html",
+  "bashls",
+  "emmet_ls"
 }
 
 require("mason-lspconfig").setup{
