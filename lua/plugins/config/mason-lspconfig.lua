@@ -3,7 +3,6 @@ local language_server_list = {
   "tsserver",
   "cssls",
   "vimls",
-  "html",
   "bashls",
   "emmet_ls"
 }
