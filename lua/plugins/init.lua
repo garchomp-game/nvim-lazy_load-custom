@@ -150,7 +150,17 @@ return {
     event = { 'CmdLineEnter', 'BufRead' },
   },
   {
+    'nvim-lua/plenary.nvim',
+    event = { 'CmdLineEnter', 'BufRead' },
+  },
+  {
     'phaazon/mind.nvim',
     event = { 'CmdLineEnter', 'BufRead' },
+    dependencies = {
+      'nvim-lua/plenary.nvim'
+    },
+    config = function()
+      require 'mind'.setup()
+    end,
   }
 }
