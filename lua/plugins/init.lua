@@ -89,6 +89,10 @@ return {
     'L3MON4D3/LuaSnip',
     event = { 'CmdLineEnter', 'BufRead' },
   },
+  -- {
+  --   'saadparwaiz1/cmp_luasnip',
+  --   event = { 'CmdLineEnter', 'BufRead' },
+  -- },
   {
     'nvim-lua/plenary.nvim',
     event = { 'CmdLineEnter', 'BufRead' },
@@ -114,7 +118,8 @@ return {
     'williamboman/mason-lspconfig.nvim',
     event = { 'CmdLineEnter', 'BufRead' },
     dependencies = {
-      'williamboman/mason.nvim'
+      'williamboman/mason.nvim',
+      'hrsh7th/nvim-cmp'
     },
     config = function()
       require 'plugins.config.mason-lspconfig'
