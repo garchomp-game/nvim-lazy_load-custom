@@ -4,7 +4,7 @@ local language_server_list = {
   "cssls",
   "vimls",
   "bashls",
-  "emmet_ls"
+  "emmet_ls",
 }
 
 require("mason-lspconfig").setup{

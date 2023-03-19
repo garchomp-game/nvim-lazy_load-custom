@@ -151,6 +151,7 @@ return {
     end,
   },
   {
+    -- git config --global commit.verbose trueを設定する
     'lambdalisue/gina.vim',
     event = { 'CmdLineEnter', 'BufRead' },
   },
@@ -166,6 +167,13 @@ return {
     },
     config = function()
       require 'mind'.setup()
+    end,
+  },
+  {
+    'jose-elias-alvarez/null-ls.nvim',
+    event = { 'CmdLineEnter', 'BufRead' },
+    config = function()
+      require 'plugins.config.null-ls'
     end,
   }
 }
