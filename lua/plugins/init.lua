@@ -17,16 +17,14 @@ return {
   {
     'junegunn/fzf',
     lazy = false,
-    build = function()
-      vim.fn["fzf#install"]()
-    end,
+    build = "./install --bin"
   },
   {
     'junegunn/fzf.vim',
     lazy = false,
     dependencies = {
       'junegunn/fzf'
-    },
+    }
   },
   {
     'dstein64/vim-startuptime',
