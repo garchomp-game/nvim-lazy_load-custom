@@ -14,7 +14,7 @@ vim.api.nvim_set_keymap(
 )
 
 vim.api.nvim_set_keymap(
-  'n','<C-space>',
+  'n','<C-b>',
   ':Buffers<CR>',
   { noremap = true, silent = true }
 )

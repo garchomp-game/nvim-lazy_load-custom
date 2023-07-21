@@ -16,11 +16,17 @@ return {
   }, 
   {
     'junegunn/fzf',
-    event = { 'CmdLineEnter', 'BufRead' },
+    lazy = false,
+    build = function()
+      vim.fn["fzf#install"]()
+    end,
   },
   {
     'junegunn/fzf.vim',
-    event = { 'CmdLineEnter', 'BufRead' },
+    lazy = false,
+    dependencies = {
+      'junegunn/fzf'
+    },
   },
   {
     'dstein64/vim-startuptime',
