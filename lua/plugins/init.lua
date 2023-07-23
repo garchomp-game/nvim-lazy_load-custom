@@ -15,18 +15,6 @@ return {
     event = { 'CmdLineEnter', 'BufRead' },
   }, 
   {
-    'junegunn/fzf',
-    lazy = false,
-    build = "./install --bin"
-  },
-  {
-    'junegunn/fzf.vim',
-    lazy = false,
-    dependencies = {
-      'junegunn/fzf'
-    }
-  },
-  {
     'dstein64/vim-startuptime',
     event = { 'CmdLineEnter', 'BufRead' },
   },
@@ -68,6 +56,7 @@ return {
   },
   {
     'hrsh7th/cmp-nvim-lsp',
+    
     event = { 'CmdLineEnter', 'BufRead' },
   },
   {
@@ -85,7 +74,12 @@ return {
   {
     'hrsh7th/nvim-cmp',
     event = { 'CmdLineEnter', 'BufRead' },
+    dependencies = {
+      'L3MON4D3/LuaSnip',
+      'saadparwaiz1/cmp_luasnip'
+    },
     config = function()
+      require 'luasnip'
       require 'plugins.config.nvim-cmp'
     end,
   },
@@ -93,10 +87,10 @@ return {
     'L3MON4D3/LuaSnip',
     event = { 'CmdLineEnter', 'BufRead' },
   },
-  -- {
-  --   'saadparwaiz1/cmp_luasnip',
-  --   event = { 'CmdLineEnter', 'BufRead' },
-  -- },
+  {
+    'saadparwaiz1/cmp_luasnip',
+    event = { 'CmdLineEnter', 'BufRead' },
+  },
   {
     'nvim-lua/plenary.nvim',
     event = { 'CmdLineEnter', 'BufRead' },
