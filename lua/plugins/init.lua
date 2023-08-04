@@ -15,6 +15,10 @@ return {
     event = { 'CmdLineEnter', 'BufRead' },
   }, 
   {
+    'ojroques/nvim-bufdel',
+    event = { 'CmdLineEnter', 'BufRead' },
+  },
+  {
     'dstein64/vim-startuptime',
     event = { 'CmdLineEnter', 'BufRead' },
   },
