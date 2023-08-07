@@ -3,7 +3,6 @@ vim.defer_fn(function()
 end, 0)
 local lazypath = vim.fn.stdpath("data")
       .. "/lazy/lazy.nvim"
-local plugins = require('plugins.init')
 local configs = {
   defaults = { lazy = true }
 }
@@ -30,5 +29,5 @@ if not vim.loop.fs_stat(lazypath) then
 end
 
 vim.opt.rtp:prepend(lazypath)
-require("lazy").setup(plugins, configs)
+require("lazy").setup("plugins", configs)
 require 'config'
