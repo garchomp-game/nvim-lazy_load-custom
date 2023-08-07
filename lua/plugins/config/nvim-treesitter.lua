@@ -5,8 +5,9 @@ require'nvim-treesitter.configs'.setup {
     "vim", 
     "java",
     "javascript",
-    "typescript"
-    -- "markdown",
+    "typescript",
+    "markdown",
+    "markdown_inline",
   },
 
   highlight = {

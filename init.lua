@@ -1,9 +1,12 @@
 vim.defer_fn(function()
   pcall(require, "impatient")
 end, 0)
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+local lazypath = vim.fn.stdpath("data")
+      .. "/lazy/lazy.nvim"
 local plugins = require('plugins.init')
-local configs = require('config.lazyConfigs')
+local configs = {
+  defaults = { lazy = true }
+}
 
 local home = vim.env.HOME
 -- local lombok = "/.local/share/nvim/mason/packages/jdtls/lombok.jar"
@@ -29,18 +32,3 @@ end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup(plugins, configs)
 require 'config'
-
-
-vim.cmd([[colorscheme base16-ayu-dark]])
-vim.opt.helplang='ja,en'
-vim.opt.expandtab = true
-vim.opt.tabstop = 2
-vim.opt.shiftwidth =2
-vim.opt.number = false
-vim.opt.mouse = ""
-vim.opt.cursorline = false
-vim.opt.relativenumber = false
-vim.opt.cursorcolumn = false
-vim.opt.showcmd = true
-vim.opt.ruler = true
-vim.opt.ignorecase = true

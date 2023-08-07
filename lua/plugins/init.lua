@@ -174,6 +174,9 @@ return {
   {
     'jose-elias-alvarez/null-ls.nvim',
     event = { 'CmdLineEnter', 'BufRead' },
+    dependencies = {
+      'williamboman/mason-lspconfig.nvim'
+    },
     config = function()
       require 'plugins.config.null-ls'
     end,
