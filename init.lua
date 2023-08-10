@@ -1,6 +1,3 @@
-vim.defer_fn(function()
-  pcall(require, "impatient")
-end, 0)
 local lazypath = vim.fn.stdpath("data")
       .. "/lazy/lazy.nvim"
 local configs = {

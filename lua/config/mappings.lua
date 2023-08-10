@@ -14,12 +14,6 @@ vim.api.nvim_set_keymap(
 )
 
 vim.api.nvim_set_keymap(
-  'n','<C-b>',
-  ':Buffers<CR>',
-  { noremap = true, silent = true }
-)
-
-vim.api.nvim_set_keymap(
   'n','<C-n>',
   -- ':NERDTreeToggle<CR>',
   ':NvimTreeToggle<CR>',
