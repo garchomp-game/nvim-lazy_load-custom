@@ -35,7 +35,6 @@ return {
     opts = function()
 
       local myList = {
-        "shfmt",
         "bash-debug-adapter",
         "bash-language-server",
         "vim-language-server",
