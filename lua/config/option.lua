@@ -1,8 +1,8 @@
-vim.cmd([[colorscheme ayu]])
+vim.cmd([[colorscheme torte]])
 vim.opt.helplang='ja,en'
 vim.opt.expandtab = true
 vim.opt.tabstop = 2
-vim.opt.shiftwidth =2
+vim.opt.shiftwidth = 2
 vim.opt.mouse = ""
 vim.opt.relativenumber = false
 vim.opt.cursorcolumn = false

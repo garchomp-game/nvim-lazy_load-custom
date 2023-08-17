@@ -5,7 +5,7 @@ return {
   opts = function()
     require('lualine').setup {
       options = {
-        theme = 'ayu'
+        theme = 'ayu_dark'
       },
     }
   end,
