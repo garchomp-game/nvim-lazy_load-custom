@@ -1,4 +1,4 @@
-vim.cmd([[colorscheme torte]])
+vim.cmd([[colorscheme base16-monokai]])
 vim.opt.helplang='ja,en'
 vim.opt.expandtab = true
 vim.opt.tabstop = 2
