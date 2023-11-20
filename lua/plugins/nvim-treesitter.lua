@@ -29,7 +29,6 @@ return {
           },
         },
         ensure_installed = { 
-          "lua", 
           "vim", 
           "java",
           "javascript",

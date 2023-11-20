@@ -9,6 +9,7 @@ return {
     opts = function()
 
       local language_server_list = {
+        "phpactor",
         "jdtls",
         "tsserver",
         "cssls",
@@ -35,6 +36,7 @@ return {
     opts = function()
 
       local myList = {
+        "phpactor",
         "bash-debug-adapter",
         "bash-language-server",
         "vim-language-server",
