@@ -5,6 +5,7 @@ vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.mouse = ""
 vim.opt.relativenumber = false
+vim.opt.number = true
 vim.opt.cursorcolumn = false
 vim.opt.showcmd = true
 vim.opt.ruler = true
