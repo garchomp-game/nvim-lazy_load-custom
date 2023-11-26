@@ -4,6 +4,7 @@ return {
     'nvim-tree/nvim-web-devicons'
   },
   event = { 'CmdLineEnter', 'BufRead' },
+  lazy = false,
   opts = function()
     -- disable netrw at the very start of your init.lua
     vim.g.loaded_netrw = 1
@@ -12,21 +13,26 @@ return {
     -- set termguicolors to enable highlight groups
     vim.opt.termguicolors = true
 
-    -- empty setup using defaults
-    require("nvim-tree").setup()
-
     -- OR setup with some options
-    require("nvim-tree").setup({
-      sort_by = "case_sensitive",
+    require("nvim-tree").setup {
+      git = {
+        ignore = false, -- .gitignoreされたファイルもtreeに表示する
+      },
+      -- 以下、treeのrootに関する設定
+      -- prefer_startup_root = true,
+      update_focused_file = {
+        enable = false,          -- カレントバッファに合わせて常に更新
+        update_root = true,      -- `:NvimTreeFindFile`すると更新
+        ignore_list = {},
+      },
       view = {
-        width = 30,
+        -- sizeを動的に調整する
+        width = {
+          min = 5,
+          max = 75,
+          padding = 1
+        }
       },
-      renderer = {
-        group_empty = true,
-      },
-      filters = {
-        dotfiles = true,
-      },
-    })
+    }
   end,
 }

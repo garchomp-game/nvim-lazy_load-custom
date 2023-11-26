@@ -28,7 +28,7 @@
   "quick-scope": { "branch": "master", "commit": "256d81e391a22eeb53791ff62ce65f870418fa71" },
   "tabular": { "branch": "master", "commit": "339091ac4dd1f17e225fe7d57b48aff55f99b23a" },
   "tagbar": { "branch": "master", "commit": "5d6990e4fc5b3e3b88a3af90146f2561c4f6d828" },
-  "telescope.nvim": { "branch": "master", "commit": "18774ec7929c8a8003a91e9e1f69f6c32258bbfe" },
+  "telescope.nvim": { "branch": "master", "commit": "e4c62dedd760d339bea5b8325c2d918d87476d00" },
   "toggleterm.nvim": { "branch": "main", "commit": "faee9d60428afc7857e0927fdc18daa6c409fa64" },
   "translate.vim": { "branch": "master", "commit": "7141ef44c68c06ccd7b8b3f97432330613207f80" },
   "vim-be-good": { "branch": "master", "commit": "c290810728a4f75e334b07dc0f3a4cdea908d351" },
@@ -36,5 +36,6 @@
   "vim-maketable": { "branch": "master", "commit": "d72e73f333c64110524197ec637897bd1464830f" },
   "vim-startuptime": { "branch": "master", "commit": "454b3de856b7bd298700de33d79774ca9b9e3875" },
   "vim-vbnet": { "branch": "master", "commit": "a45e5703ede31c2b3a6062788ef8282d7653c5fe" },
-  "vimdoc-ja": { "branch": "master", "commit": "f0a65a6dcae2a2daaa23d24ab9195d453093c086" }
+  "vimdoc-ja": { "branch": "master", "commit": "f0a65a6dcae2a2daaa23d24ab9195d453093c086" },
+  "winresizer": { "branch": "master", "commit": "9bd559a03ccec98a458e60c705547119eb5350f3" }
 }

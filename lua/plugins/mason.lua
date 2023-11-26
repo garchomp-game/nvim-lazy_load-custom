@@ -16,6 +16,8 @@ return {
         "vimls",
         "bashls",
         "emmet_ls",
+        "eslint",
+        "volar",
       }
 
       require("mason-lspconfig").setup{
@@ -45,6 +47,8 @@ return {
         "json-lsp",
         "textlint",
         "markdownlint",
+        "eslint-lsp",
+        "vue-language-server",
       }
 
 
