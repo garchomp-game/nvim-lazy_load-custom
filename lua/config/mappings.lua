@@ -16,7 +16,8 @@ vim.api.nvim_set_keymap(
 vim.api.nvim_set_keymap(
   'n','<C-n>',
   -- ':NERDTreeToggle<CR>',
-  ':NvimTreeToggle<CR>',
+  -- ':NvimTreeToggle<CR>',
+  ':Neotree toggle<CR>',
   { noremap = true, silent = true }
 )
 
