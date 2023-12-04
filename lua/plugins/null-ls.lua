@@ -24,7 +24,8 @@ return {
             "scss",
             "less",
             "graphql",
-            "lua"
+            "lua",
+            "pug"
           },
 
           -- 他のオプション
@@ -37,7 +38,7 @@ return {
       },
     })
     vim.api.nvim_create_autocmd("FileType", {
-      pattern = {"javascript", "typescript", "css", "json", "yaml", "markdown", "vue", "html", "scss", "less", "graphql", "lua"},
+      pattern = {"javascript", "typescript", "css", "json", "yaml", "markdown", "vue", "html", "scss", "less", "graphql", "lua", "pug"},
       callback = function()
         vim.opt_local.tabstop = 2
         vim.opt_local.shiftwidth = 2

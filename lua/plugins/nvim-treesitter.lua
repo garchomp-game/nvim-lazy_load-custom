@@ -31,6 +31,9 @@ return {
         ensure_installed = { 
           "vim", 
           "java",
+          "php",
+          "vue",
+          "lua",
           "javascript",
           "typescript",
           "markdown",
