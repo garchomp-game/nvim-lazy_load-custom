@@ -1,0 +1,12 @@
+command! CheckHealthDependencies call CheckHealthDependencies()
+
+function! CheckHealthDependencies()
+  " 新しいバッファを開く
+  new
+  " ヘルスチェックの結果をレジスタaにリダイレクト
+  let l:output = execute('checkhealth')
+  " レジスタaの内容を現在のバッファに貼り付け
+  put =l:output
+  " 不要な行を削除（ここでは 'OK', 'WARNING', 'ERROR' を含まない行を削除）
+  v/\v(OK|WARNING|ERROR)/d
+endfunction

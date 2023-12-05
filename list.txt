@@ -1,0 +1,77 @@
+- OK Git installed
+- OK no existing packages found by other package managers
+- OK packer_compiled.lua not found
+- OK mason.nvim version v1.8.3
+- OK PATH: prepend
+- OK Providers: 
+- OK neovim version >= 0.7.0
+- OK Registry `github.com/mason-org/mason-registry version: 2023-12-04-tight-aura` is installed.
+- OK unzip: `UnZip 6.00 of 20 April 2009, by Info-ZIP.  Maintained by C. Spieler.  Send`
+- WARNING wget: not available
+- OK curl: `curl 8.1.2 (x86_64-w64-mingw32) libcurl/8.1.2 Schannel zlib/1.2.13 brotli/1.0.9 zstd/1.5.5 libidn2/2.3.4 libpsl/0.21.2 (+libidn2/2.3.3) libssh2/1.11.0`
+- OK gzip: `gzip 1.12`
+- OK tar: `tar (GNU tar) 1.34`
+- ERROR pwsh: not available
+- OK 7z: `7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20`
+- WARNING Go: not available
+- WARNING cargo: not available
+- WARNING luarocks: not available
+- WARNING Ruby: not available
+- WARNING RubyGem: not available
+- OK PHP: `PHP 8.2.12 (cli) (built: Oct 24 2023 21:15:35) (NTS Visual C++ 2019 x64)`
+- OK node: `v18.17.0`
+- WARNING julia: not available
+- OK python: `Python 3.10.11`
+- OK java: `openjdk version "21.0.1" 2023-10-17 LTS`
+- OK Composer: `Composer version 2.6.5 2023-10-06 10:11:52`
+- OK JAVA_HOME: `openjdk version "21.0.1" 2023-10-17 LTS`
+- OK javac: `javac 21.0.1`
+- OK pip: `pip 23.0.1 from C:\Users\user\AppData\Local\Programs\Python\Python310\lib\site-packages\pip (python 3.10)`
+- OK python venv: `Ok`
+- OK npm: `9.6.7`
+- OK GitHub API rate limit. Used: 0. Remaining: 60. Limit: 60. Reset: 2023/12/05 11:28:43.
+- OK prettier: the command "prettier" is executable.
+- ERROR black: the command "black" is not executable.
+- ERROR gofmt: the command "gofmt" is not executable.
+- OK no issues found
+- OK $VIMRUNTIME: C:\Program Files\Neovim\share\nvim\runtime
+- OK Build type: RelWithDebInfo
+- OK Up to date
+- WARNING `tree-sitter` executable not found (parser generator, only needed for :TSInstallFromGrammar, not required for :TSInstall)
+- OK `node` found v18.17.0 (only needed for :TSInstallFromGrammar)
+- OK `git` executable found.
+- OK `gcc` executable found. Selected from { vim.NIL, "cc", "gcc", "clang", "cl", "zig" }
+- OK Neovim was compiled with tree-sitter runtime ABI version 14 (required >=13). Parsers must be compatible with runtime ABI.
+         x) errors found in the query, try to run :TSUpdate {lang} ~
+- OK Clipboard tool found: win32yank
+- WARNING Latest pynvim is NOT installed: 0.5.0
+- OK no $VIRTUAL_ENV
+- WARNING `ruby` and `gem` must be in $PATH.
+- WARNING Missing "neovim" npm (or yarn, pnpm) package.
+    - You may disable this provider (and warning) by adding `let g:loaded_node_provider = 0` to your init.vim
+- WARNING "Neovim::Ext" cpan module is not installed
+    - You may disable this provider (and warning) by adding `let g:loaded_perl_provider = 0` to your init.vim
+- OK plenary installed.
+- OK nvim-treesitter installed.
+- OK rg: found ripgrep 13.0.0 (rev af6b6c543b)
+- WARNING fd: not found. Install [sharkdp/fd](https://github.com/sharkdp/fd) for extended capabilities
+- OK Parser: bash       ABI: 14, path: C:\Users\user\AppData\Local\nvim-data\lazy\nvim-treesitter\parser\bash.so
+- OK Parser: bass       ABI: 14, path: C:\Users\user\AppData\Local\nvim-data\lazy\nvim-treesitter\parser\bass.so
+- OK Parser: java       ABI: 14, path: C:\Users\user\AppData\Local\nvim-data\lazy\nvim-treesitter\parser\java.so
+- OK Parser: javascript ABI: 14, path: C:\Users\user\AppData\Local\nvim-data\lazy\nvim-treesitter\parser\javascript.so
+- OK Parser: latex      ABI: 14, path: C:\Users\user\AppData\Local\nvim-data\lazy\nvim-treesitter\parser\latex.so
+- OK Parser: lua        ABI: 14, path: C:\Users\user\AppData\Local\nvim-data\lazy\nvim-treesitter\parser\lua.so
+- OK Parser: markdown   ABI: 14, path: C:\Users\user\AppData\Local\nvim-data\lazy\nvim-treesitter\parser\markdown.so
+- OK Parser: markdown_inline ABI: 14, path: C:\Users\user\AppData\Local\nvim-data\lazy\nvim-treesitter\parser\markdown_inline.so
+- OK Parser: php        ABI: 14, path: C:\Users\user\AppData\Local\nvim-data\lazy\nvim-treesitter\parser\php.so
+- OK Parser: pug        ABI: 14, path: C:\Users\user\AppData\Local\nvim-data\lazy\nvim-treesitter\parser\pug.so
+- OK Parser: query      ABI: 14, path: C:\Users\user\AppData\Local\nvim-data\lazy\nvim-treesitter\parser\query.so
+- OK Parser: typescript ABI: 14, path: C:\Users\user\AppData\Local\nvim-data\lazy\nvim-treesitter\parser\typescript.so
+- OK Parser: vim        ABI: 14, path: C:\Users\user\AppData\Local\nvim-data\lazy\nvim-treesitter\parser\vim.so
+- OK Parser: vimdoc     ABI: 14, path: C:\Users\user\AppData\Local\nvim-data\lazy\nvim-treesitter\parser\vimdoc.so
+- OK Parser: vue        ABI: 13, path: C:\Users\user\AppData\Local\nvim-data\lazy\nvim-treesitter\parser\vue.so
+- OK Parser: c          ABI: 13, path: C:\Program Files\Neovim\lib\nvim\parser\c.dll
+- OK Parser: lua        ABI: 14, path: C:\Program Files\Neovim\lib\nvim\parser\lua.dll
+- OK Parser: query      ABI: 14, path: C:\Program Files\Neovim\lib\nvim\parser\query.dll
+- OK Parser: vim        ABI: 14, path: C:\Program Files\Neovim\lib\nvim\parser\vim.dll
+- OK Parser: vimdoc     ABI: 14, path: C:\Program Files\Neovim\lib\nvim\parser\vimdoc.dll

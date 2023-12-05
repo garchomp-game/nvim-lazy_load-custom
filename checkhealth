@@ -1,0 +1,87 @@
+
+==============================================================================
+lazy: require("lazy.health").check()
+
+lazy.nvim ~
+- OK Git installed
+- OK no existing packages found by other package managers
+- OK packer_compiled.lua not found
+
+==============================================================================
+nvim: require("nvim.health").check()
+
+Configuration ~
+- OK no issues found
+
+Runtime ~
+- OK $VIMRUNTIME: C:\Program Files\Neovim\share\nvim\runtime
+
+Performance ~
+- OK Build type: RelWithDebInfo
+
+Remote Plugins ~
+- OK Up to date
+
+terminal ~
+- key_backspace (kbs) terminfo entry: `key_backspace=^H`
+- key_dc (kdch1) terminfo entry: `key_dc=\E[3~`
+- $TERM_PROGRAM="mintty"
+
+==============================================================================
+provider: health#provider#check
+
+Clipboard (optional) ~
+- OK Clipboard tool found: win32yank
+
+Python 3 provider (optional) ~
+- `g:python3_host_prog` is not set.  Searching for python in the environment.
+- Multiple python executables found.  Set `g:python3_host_prog` to avoid surprises.
+- Executable: C:\Users\user\AppData\Local\Programs\Python\Python310\python.EXE
+- Other python executable: C:/Users/user/AppData/Local/Programs/Python/Python310/python
+- Python version: 3.10.11
+- pynvim version: 0.4.3 (outdated; from ~\AppData\Local\Programs\Python\Python310\lib\site-packages\neovim)
+- WARNING Latest pynvim is NOT installed: 0.5.0
+
+Python virtualenv ~
+- OK no $VIRTUAL_ENV
+
+Ruby provider (optional) ~
+- WARNING `ruby` and `gem` must be in $PATH.
+  - ADVICE:
+    - Install Ruby and verify that `ruby` and `gem` commands work.
+
+Node.js provider (optional) ~
+- Node.js: v18.17.0
+- WARNING Missing "neovim" npm (or yarn, pnpm) package.
+  - ADVICE:
+    - Run in shell: npm install -g neovim
+    - Run in shell (if you use yarn): yarn global add neovim
+    - Run in shell (if you use pnpm): pnpm install -g neovim
+    - You may disable this provider (and warning) by adding `let g:loaded_node_provider = 0` to your init.vim
+
+Perl provider (optional) ~
+- WARNING "Neovim::Ext" cpan module is not installed
+  - ADVICE:
+    - See :help |provider-perl| for more information.
+    - You may disable this provider (and warning) by adding `let g:loaded_perl_provider = 0` to your init.vim
+
+==============================================================================
+vim.lsp: require("vim.lsp.health").check()
+
+- LSP log level : WARN
+- Log path: C:\Users\user\AppData\Local\nvim-data\lsp.log
+- Log size: 15 KB
+
+vim.lsp: Active Clients ~
+- No active clients
+
+==============================================================================
+vim.treesitter: require("vim.treesitter.health").check()
+
+- Nvim runtime ABI version: 14
+- OK Parser: c          ABI: 13, path: C:\Program Files\Neovim\lib\nvim\parser\c.dll
+- OK Parser: lua        ABI: 14, path: C:\Program Files\Neovim\lib\nvim\parser\lua.dll
+- OK Parser: query      ABI: 14, path: C:\Program Files\Neovim\lib\nvim\parser\query.dll
+- OK Parser: vim        ABI: 14, path: C:\Program Files\Neovim\lib\nvim\parser\vim.dll
+- OK Parser: vimdoc     ABI: 14, path: C:\Program Files\Neovim\lib\nvim\parser\vimdoc.dll
+
