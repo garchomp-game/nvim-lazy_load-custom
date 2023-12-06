@@ -7,6 +7,7 @@ return {
   opts = function()
     require("toggleterm").setup{
       open_mapping = [[<c-\>]],
+      shell = "powershell",
     }
     function _G.set_terminal_keymaps()
       local opts = {buffer = 0}
