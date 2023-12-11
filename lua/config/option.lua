@@ -11,9 +11,9 @@ vim.opt.showcmd = true
 vim.opt.ruler = true
 vim.opt.ignorecase = true
 
-if vim.fn.has('win32') == 1 or vim.fn.has('win64') == 1 then
-  vim.o.shell = 'powershell'
-  vim.o.shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command'
-  vim.o.shellquote = '\"'
-  vim.o.shellxquote = ''
-end
+-- if vim.fn.has('win32') == 1 or vim.fn.has('win64') == 1 then
+--   vim.o.shell = 'powershell'
+--   vim.o.shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command'
+--   vim.o.shellquote = '\"'
+--   vim.o.shellxquote = ''
+-- end

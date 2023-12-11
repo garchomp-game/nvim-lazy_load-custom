@@ -15,6 +15,12 @@ return {
     opts = function()
       require("neo-tree").setup({
         -- その他の設定...
+        filesystem = {
+
+          components = {
+            size = false
+          },
+        },
         window = {
           auto_expand_width = true, -- ウィンドウ幅を自動的に拡張する
           -- その他のウィンドウ関連の設定...
