@@ -5,6 +5,7 @@ return {
   },
   lazy = false,
   event = { 'VimEnter' },
+  keys = {'<C-n>'},
   config = function()
     vim.api.nvim_set_keymap(
       'n','<C-n>',

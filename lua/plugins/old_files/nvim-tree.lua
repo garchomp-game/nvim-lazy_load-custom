@@ -5,6 +5,7 @@ return {
   },
   event = { 'CmdLineEnter', 'BufRead' },
   lazy = false,
+  keys = {'<C-n>'},
   config = function()
     vim.api.nvim_set_keymap(
       'n','<C-n>',
