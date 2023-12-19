@@ -5,6 +5,13 @@ return {
   },
   event = { 'CmdLineEnter', 'BufRead' },
   lazy = false,
+  config = function()
+    vim.api.nvim_set_keymap(
+      'n','<C-n>',
+      ':NvimTreeToggle<CR>',
+      { noremap = true, silent = true }
+    )
+  end,
   opts = function()
     -- disable netrw at the very start of your init.lua
     vim.g.loaded_netrw = 1

@@ -12,6 +12,13 @@ return {
       "MunifTanjim/nui.nvim"
     },
     event = { 'CmdLineEnter', 'BufRead' },
+    config = function()
+      vim.api.nvim_set_keymap(
+        'n','<C-n>',
+        ':Neotree toggle<CR>',
+        { noremap = true, silent = true }
+      )
+    end,
     opts = function()
       require("neo-tree").setup({
       })
