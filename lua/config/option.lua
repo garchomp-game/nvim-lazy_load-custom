@@ -10,6 +10,7 @@ vim.opt.cursorcolumn = false
 vim.opt.showcmd = true
 vim.opt.ruler = true
 vim.opt.ignorecase = true
+vim.opt.foldenable = false
 
 -- if vim.fn.has('win32') == 1 or vim.fn.has('win64') == 1 then
 --   vim.o.shell = 'powershell'
