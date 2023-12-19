@@ -20,8 +20,7 @@ return {
       )
     end,
     opts = function()
-      require("neo-tree").setup({
-      })
+      require("neo-tree").setup()
     end
   }
 }
