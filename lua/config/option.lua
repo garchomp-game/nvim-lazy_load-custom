@@ -11,6 +11,8 @@ vim.opt.showcmd = true
 vim.opt.ruler = true
 vim.opt.ignorecase = true
 vim.opt.foldenable = false
+vim.opt.clipboard = "unnamedplus"
+
 
 -- if vim.fn.has('win32') == 1 or vim.fn.has('win64') == 1 then
 --   vim.o.shell = 'powershell'
