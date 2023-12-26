@@ -34,6 +34,7 @@
   "translate.vim": { "branch": "master", "commit": "7141ef44c68c06ccd7b8b3f97432330613207f80" },
   "vim-be-good": { "branch": "master", "commit": "c290810728a4f75e334b07dc0f3a4cdea908d351" },
   "vim-maketable": { "branch": "master", "commit": "d72e73f333c64110524197ec637897bd1464830f" },
+  "vim-shakyo": { "branch": "main", "commit": "c77a978da238402d5d2994ffc19c8f68c28ce9a0" },
   "vim-startuptime": { "branch": "master", "commit": "454b3de856b7bd298700de33d79774ca9b9e3875" },
   "vim-vbnet": { "branch": "master", "commit": "a45e5703ede31c2b3a6062788ef8282d7653c5fe" },
   "vimdoc-ja": { "branch": "master", "commit": "f0a65a6dcae2a2daaa23d24ab9195d453093c086" },

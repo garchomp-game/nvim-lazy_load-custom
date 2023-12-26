@@ -42,6 +42,7 @@ return {
         },
         ensure_installed = { 
           "vim", 
+          "vimdoc",
           "java",
           "php",
           "vue",
