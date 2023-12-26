@@ -1,7 +1,10 @@
 local lazypath = vim.fn.stdpath("data")
       .. "/lazy/lazy.nvim"
 local configs = {
-  defaults = { lazy = true }
+  defaults = { lazy = true },
+  dev = {
+    path = "~/.config/nvim/pack"
+  }
 }
 
 local home = vim.env.HOME
