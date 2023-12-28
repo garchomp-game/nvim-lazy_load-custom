@@ -33,7 +33,7 @@ return {
           -- 他のオプション
         }),
         null_ls.builtins.formatting.black.with({
-          filetypes = { "python" } 
+          filetypes = { "python" }
         }),  -- Python用のフォーマッター
         null_ls.builtins.formatting.gofmt,  -- Go用のフォーマッター
         -- 他の言語用のフォーマッターをここに追加
