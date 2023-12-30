@@ -1,4 +1,8 @@
-vim.cmd([[colorscheme base16-monokai]])
+
+-- カラースキーマの適用
+-- TokyoNightの設定
+vim.g.tokyonight_transparent = true  -- 背景を透過させる場合
+vim.cmd[[colorscheme tokyonight-night]]
 vim.opt.helplang='ja,en'
 vim.opt.expandtab = true
 vim.opt.tabstop = 2
