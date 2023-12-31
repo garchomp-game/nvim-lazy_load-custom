@@ -25,13 +25,14 @@ return {
       }
 
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+      local lazy_nvim_path = vim.fn.stdpath("data")-- lazy.nvimのパスを指定
+      local runtime_files = vim.api.nvim_get_runtime_file("", true)
+      local library_paths = { lazy_nvim_path }
       for _, val in pairs(language_server_list) do
         local server_opts = {
           capabilities = capabilities
         }
-        local lazy_nvim_path = vim.fn.stdpath("data")-- lazy.nvimのパスを指定
-        local runtime_files = vim.api.nvim_get_runtime_file("", true)
-        local library_paths = { lazy_nvim_path }
 
         -- Neovimのランタイムファイルを追加
         for _, file in ipairs(runtime_files) do
