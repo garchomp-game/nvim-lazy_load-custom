@@ -29,7 +29,7 @@ return {
         local server_opts = {
           capabilities = capabilities
         }
-        local lazy_nvim_path = "/path/to/lazy.nvim" -- lazy.nvimのパスを指定
+        local lazy_nvim_path = vim.fn.stdpath("data")-- lazy.nvimのパスを指定
         local runtime_files = vim.api.nvim_get_runtime_file("", true)
         local library_paths = { lazy_nvim_path }
 
