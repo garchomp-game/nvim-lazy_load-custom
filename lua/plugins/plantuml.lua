@@ -2,8 +2,9 @@ return {
   'Sol-Ponz/plantuml-previewer.nvim',
   event = { 'CmdLineEnter', 'BufRead' },
   opts = function()
+    local home = vim.env.HOME
     require("plantuml-previewer").setup {
-      plantuml_jar = "/home/garchomp-game/plantuml.jar",
+      plantuml_jar = home .. "/plantuml.jar",
       java_command = "/usr/bin/java",
     }
   end,

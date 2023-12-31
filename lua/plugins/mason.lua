@@ -17,7 +17,7 @@ return {
         "emmet_ls",
         "eslint",
         "volar",
-        "lua_ls",
+        -- "lua_ls",
       }
 
       require("mason-lspconfig").setup{
@@ -71,7 +71,7 @@ return {
         "markdownlint",
         "eslint-lsp",
         "vue-language-server",
-        "lua-language-server",
+        -- "lua-language-server",
       }
 
 
