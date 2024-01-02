@@ -65,8 +65,7 @@ return {
   },
   {
     'williamboman/mason.nvim',
-    -- event = { 'CmdLineEnter', 'BufRead' },
-    lazy = false,
+    event = { 'CmdLineEnter', 'BufRead' },
     config = function()
 
       local myList = {
