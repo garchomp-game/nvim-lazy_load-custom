@@ -67,6 +67,9 @@ return {
   },
   {
     'williamboman/mason.nvim',
+    dependencies = {
+      'jay-babu/mason-nvim-dap.nvim',
+    },
     event = { 'CmdLineEnter', 'BufRead' },
     config = function()
 
@@ -97,6 +100,7 @@ return {
       end
 
       require("mason").setup()
+      require("mason-nvim-dap").setup()
       check()
     end,
   },
