@@ -5,6 +5,7 @@ return {
     dependencies = {
       'williamboman/mason.nvim',
       'hrsh7th/nvim-cmp',
+      'rcarriga/nvim-dap-ui',
       'folke/neodev.nvim' -- neodevを追加
     },
     opts = function()
@@ -36,12 +37,13 @@ return {
 
       for _, val in pairs(language_server_list) do
         local server_opts = {
-          capabilities = capabilities
+          capabilities = capabilities,
         }
 
         -- lua_ls の特別な設定
         if val == "lua_ls" then
           server_opts = require("neodev").setup(server_opts)
+          server_opts.library = { plugins = { "nvim-dap-ui" }, types = true }
           server_opts.settings = {
             Lua = {
               runtime = {

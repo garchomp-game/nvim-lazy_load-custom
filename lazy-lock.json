@@ -10,6 +10,7 @@
   "comment.nvim": { "branch": "master", "commit": "0236521ea582747b58869cb72f70ccfa967d2e89" },
   "gina.vim": { "branch": "master", "commit": "ff6c2ddeca98f886b57fb42283c12e167d6ab575" },
   "lazy.nvim": { "branch": "main", "commit": "96584866b9c5e998cbae300594d0ccfd0c464627" },
+  "local-lua-debugger-vscode": { "branch": "master", "commit": "d51ee2907b02d630be0fd62d243de184e26ad431" },
   "lualine.nvim": { "branch": "master", "commit": "566b7036f717f3d676362742630518a47f132fff" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "56e435e09f8729af2d41973e81a0db440f8fe9c9" },
   "mason.nvim": { "branch": "main", "commit": "41e75af1f578e55ba050c863587cffde3556ffa6" },
