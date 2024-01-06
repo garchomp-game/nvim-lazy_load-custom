@@ -1,4 +1,4 @@
 return {
-  -- 'folke/neodev.nvim',
-  -- event = { 'CmdLineEnter', 'BufRead' },
+  'folke/neodev.nvim',
+  event = { 'CmdLineEnter', 'BufRead' },
 }

@@ -4,7 +4,8 @@ return {
     event = { 'CmdLineEnter', 'BufRead' },
     dependencies = {
       'williamboman/mason.nvim',
-      'hrsh7th/nvim-cmp'
+      'hrsh7th/nvim-cmp',
+      'folke/neodev.nvim' -- neodevを追加
     },
     opts = function()
       local language_server_list = {
@@ -25,7 +26,6 @@ return {
       }
 
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
       local lazy_nvim_path = vim.fn.stdpath("data")-- lazy.nvimのパスを指定
       local runtime_files = vim.api.nvim_get_runtime_file("", true)
       local library_paths = { lazy_nvim_path }
@@ -41,6 +41,7 @@ return {
 
         -- lua_ls の特別な設定
         if val == "lua_ls" then
+          server_opts = require("neodev").setup(server_opts)
           server_opts.settings = {
             Lua = {
               runtime = {
@@ -58,7 +59,6 @@ return {
             }
           }
         end
-
         require("lspconfig")[val].setup(server_opts)
       end
     end,
