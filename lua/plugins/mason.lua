@@ -5,7 +5,6 @@ return {
     dependencies = {
       'williamboman/mason.nvim',
       'hrsh7th/nvim-cmp',
-      'rcarriga/nvim-dap-ui',
       'folke/neodev.nvim' -- neodevを追加
     },
     opts = function()
@@ -43,7 +42,6 @@ return {
         -- lua_ls の特別な設定
         if val == "lua_ls" then
           server_opts = require("neodev").setup(server_opts)
-          server_opts.library = { plugins = { "nvim-dap-ui" }, types = true }
           server_opts.settings = {
             Lua = {
               runtime = {
@@ -67,9 +65,6 @@ return {
   },
   {
     'williamboman/mason.nvim',
-    dependencies = {
-      'jay-babu/mason-nvim-dap.nvim',
-    },
     event = { 'CmdLineEnter', 'BufRead' },
     config = function()
 
@@ -100,7 +95,6 @@ return {
       end
 
       require("mason").setup()
-      require("mason-nvim-dap").setup()
       check()
     end,
   },
