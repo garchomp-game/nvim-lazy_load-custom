@@ -21,45 +21,26 @@ return {
         "lua_ls",
       }
 
+      local lua_ls = require('plugins.lsp.lua_ls') -- lua_lsの設定をインポート
+
       require("mason-lspconfig").setup{
         ensure_installed = language_server_list,
       }
 
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
-      local lazy_nvim_path = vim.fn.stdpath("data")-- lazy.nvimのパスを指定
-      local runtime_files = vim.api.nvim_get_runtime_file("", true)
-      local library_paths = { lazy_nvim_path }
-      -- Neovimのランタイムファイルを追加
-      for _, file in ipairs(runtime_files) do
-        table.insert(library_paths, file)
-      end
 
       for _, val in pairs(language_server_list) do
         local server_opts = {
           capabilities = capabilities,
         }
 
-        -- lua_ls の特別な設定
+        -- lua_ls の特別な設定を別ファイルで行う
         if val == "lua_ls" then
-          server_opts = require("neodev").setup(server_opts)
-          server_opts.settings = {
-            Lua = {
-              runtime = {
-                version = 'LuaJIT',
-              },
-              diagnostics = {
-                globals = {'vim', 'require'},
-              },
-              workspace = {
-                library = library_paths,
-              },
-              telemetry = {
-                enable = false,
-              },
-            }
-          }
+          lua_ls.setup()
+        else
+          -- 他のLSPサーバに関する設定
+          require("lspconfig")[val].setup(server_opts)
         end
-        require("lspconfig")[val].setup(server_opts)
       end
     end,
   },
