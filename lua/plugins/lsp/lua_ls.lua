@@ -1,12 +1,4 @@
--- Termux環境かどうかをチェックする関数
-local function is_termux()
-  local prefix = vim.fn.getenv("PREFIX")
-  if type(prefix) == "string" and prefix:match('/com.termux') then
-    return true
-  else
-    return false
-  end
-end
+local is_termux = require('utils').is_termux
 
 -- lua_lsの設定を行う関数
 local function setup_lua_ls()

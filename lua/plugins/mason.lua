@@ -8,6 +8,7 @@ return {
       'folke/neodev.nvim' -- neodevを追加
     },
     opts = function()
+      local is_termux = require('utils').is_termux
       local language_server_list = {
         "intelephense",
         "jdtls",
@@ -18,8 +19,11 @@ return {
         "emmet_ls",
         "eslint",
         "volar",
-        "lua_ls",
       }
+
+      if is_termux() then
+        table.insert(language_server_list, "lua_ls")
+      end
 
       local lua_ls = require('plugins.lsp.lua_ls') -- lua_lsの設定をインポート
 
@@ -35,7 +39,7 @@ return {
         }
 
         -- lua_ls の特別な設定を別ファイルで行う
-        if val == "lua_ls" then
+        if is_termux() then
           lua_ls.setup()
         else
           -- 他のLSPサーバに関する設定
@@ -48,7 +52,7 @@ return {
     'williamboman/mason.nvim',
     event = { 'CmdLineEnter', 'BufRead' },
     config = function()
-
+      local is_termux = require('utils').is_termux
       local myList = {
         "intelephense",
         "bash-debug-adapter",
@@ -61,9 +65,10 @@ return {
         "markdownlint",
         "eslint-lsp",
         "vue-language-server",
-        "lua-language-server",
       }
-
+      if is_termux() then
+        table.insert(myList, "lua-language-server")
+      end
 
       local function check()
         local mr = require("mason-registry")
