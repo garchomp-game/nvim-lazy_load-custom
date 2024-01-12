@@ -61,9 +61,12 @@ local function setup_lua_ls()
         },
         diagnostics = {
           globals = {'vim', 'require'},
+          enable = true,
+          disable = { "lowercase-global" },  -- 必要に応じて無効にする警告を指定
         },
         workspace = {
-          library = library({"lazy.nvim"}),  -- 修正された部分
+          library = library({"lazy.nvim"}),
+          checkThirdParty = false,  -- 第三者のライブラリのチェックを行うかどうか
         },
         telemetry = {
           enable = false,
