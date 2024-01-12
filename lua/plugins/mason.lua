@@ -21,7 +21,7 @@ return {
         "volar",
       }
 
-      if is_termux() then
+      if not is_termux() then
         table.insert(language_server_list, "lua_ls")
       end
 
@@ -39,7 +39,7 @@ return {
         }
 
         -- lua_ls の特別な設定を別ファイルで行う
-        if is_termux() then
+        if not is_termux() then
           lua_ls.setup()
         else
           -- 他のLSPサーバに関する設定
@@ -66,7 +66,7 @@ return {
         "eslint-lsp",
         "vue-language-server",
       }
-      if is_termux() then
+      if not is_termux() then
         table.insert(myList, "lua-language-server")
       end
 

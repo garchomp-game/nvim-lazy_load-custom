@@ -17,7 +17,7 @@ local function setup_lua_ls()
   }
 
   -- Termux環境でない場合のみ設定を適用
-  if is_termux() == false then
+  if not is_termux() then
     server_opts = require("neodev").setup(server_opts)
     server_opts.settings = {
       Lua = {
