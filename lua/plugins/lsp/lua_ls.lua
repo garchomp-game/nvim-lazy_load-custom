@@ -1,17 +1,52 @@
 local is_termux = require('utils').is_termux
 
--- lua_lsの設定を行う関数
+---指定されたプラグイン名のパスを取得します。
+---@param names string[] プラグイン名の配列。
+---@return string[] 指定されたプラグインのパスの配列。
+local function get_plugin_paths(names)
+  local plugins = require("lazy.core.config").plugins
+  local paths = {}
+  for _, name in ipairs(names) do
+    if plugins[name] then
+      table.insert(paths, vim.fs.joinpath(plugins[name].dir, "lua"))
+    else
+      vim.notify("Invalid plugin name: " .. name)
+    end
+  end
+  return paths
+end
+
+---Neovimのユーザー設定ディレクトリのパスを取得します。
+---@return string|nil ユーザー設定ディレクトリのパス。
+local function get_config_path()
+  local config_path = vim.fn.stdpath("config")
+  if type(config_path) == "table" then
+    -- 文字列の配列の場合、最初の要素を使用
+    config_path = config_path[1]
+  end
+  return config_path
+end
+
+---指定されたプラグインと標準パスからライブラリパスを生成します。
+---@param plugins string[] 使用するプラグイン名の配列。
+---@return string[] ライブラリのパスの配列。
+local function library(plugins)
+  local paths = get_plugin_paths(plugins)
+  local config_path = get_config_path()
+  local vimruntime_path = vim.env.VIMRUNTIME
+
+  -- パスの結合を行う
+  table.insert(paths, vim.fs.joinpath(config_path, "lua"))
+  table.insert(paths, vim.fs.joinpath(vimruntime_path, "lua"))
+  table.insert(paths, "${3rd}/luv/library")
+  table.insert(paths, "${3rd}/busted/library")
+  table.insert(paths, "${3rd}/luassert/library")
+  return paths
+end
+
+---lua_lsのLSP設定を行います。
 local function setup_lua_ls()
   local capabilities = require('cmp_nvim_lsp').default_capabilities()
-  local lazy_nvim_path = vim.fn.stdpath("data") -- lazy.nvimのパスを指定
-  local runtime_files = vim.api.nvim_get_runtime_file("", true)
-  local library_paths = { lazy_nvim_path }
-
-  -- Neovimのランタイムファイルを追加
-  for _, file in ipairs(runtime_files) do
-    table.insert(library_paths, file)
-  end
-
   local server_opts = {
     capabilities = capabilities,
   }
@@ -28,7 +63,7 @@ local function setup_lua_ls()
           globals = {'vim', 'require'},
         },
         workspace = {
-          library = library_paths,
+          library = library({"lazy.nvim"}),  -- 修正された部分
         },
         telemetry = {
           enable = false,
