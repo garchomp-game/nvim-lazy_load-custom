@@ -10,7 +10,10 @@ return {
       'nvim-treesitter/playground',
     },
     opts = function()
+      ---@class MyParserConfig
+      ---@field blade table<string, any>
       local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+
       parser_config.blade = {
         install_info = {
           url = "https://github.com/EmranMR/tree-sitter-blade",
@@ -40,8 +43,8 @@ return {
             show_help = '?',
           },
         },
-        ensure_installed = { 
-          "vim", 
+        ensure_installed = {
+          "vim",
           "vimdoc",
           "java",
           "php",
@@ -53,15 +56,19 @@ return {
           "markdown_inline",
           "blade",
         },
-
         highlight = {
           enable = true,
           use_languagetree = true,
         },
-
         indent = {
           enable = true,
         },
+        modules = {
+          -- モジュール設定...
+        },
+        sync_install = true,  -- 同期インストールを無効にする
+        ignore_install = { "javascript" },  -- 特定の言語のインストールを無視
+        auto_install = true,  -- 自動インストールを有効にする
       }
     end,
   }

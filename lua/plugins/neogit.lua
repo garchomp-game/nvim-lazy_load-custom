@@ -11,3 +11,4 @@ return {
     neogit.setup {}
   end
 }
+
