@@ -3,7 +3,6 @@ return {
   'akinsho/toggleterm.nvim',
   lazy = false,
   version = "*",
-  config = true,
   opts = function()
     require("toggleterm").setup{
       open_mapping = [[<c-\>]],
