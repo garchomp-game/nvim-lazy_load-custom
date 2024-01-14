@@ -6,7 +6,7 @@ return {
     "sindrets/diffview.nvim",        -- optional - Diff integration
     "nvim-telescope/telescope.nvim", -- optional
   },
-  config = function()
+  opts = function()
     local neogit = require('neogit')
     neogit.setup {}
   end

@@ -51,7 +51,7 @@ return {
   {
     'williamboman/mason.nvim',
     event = { 'CmdLineEnter', 'BufRead' },
-    config = function()
+    opts = function()
       local is_termux = require('utils').is_termux
       local myList = {
         "intelephense",
