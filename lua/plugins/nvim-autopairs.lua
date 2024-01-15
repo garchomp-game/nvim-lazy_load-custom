@@ -1,6 +1,6 @@
 return {
   'windwp/nvim-autopairs',
-  event = { 'CmdLineEnter', 'BufRead' },
+  event = { 'BufRead' },
   opts = function()
     require('nvim-autopairs').setup {}
   end

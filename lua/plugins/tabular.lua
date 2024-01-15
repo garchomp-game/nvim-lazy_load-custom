@@ -1,4 +1,4 @@
 return {
   'godlygeek/tabular',
-  event = { 'CmdLineEnter', 'BufRead' },
+  event = { 'CmdLineEnter' },
 }

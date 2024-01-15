@@ -1,6 +1,6 @@
 return {
   'nvim-lua/plenary.nvim',
-  event = { 'CmdLineEnter', 'BufRead' },
+  event = { 'BufRead' },
   dependencies = {
     'dcampos/cmp-snippy',
   },

@@ -1,6 +1,6 @@
 return {
   "aznhe21/actions-preview.nvim",
-  event = { 'CmdLineEnter', 'BufRead' },
+  event = { 'BufRead' },
   keys = {
     "gf"
   },

@@ -1,6 +1,6 @@
 return {
   'nvim-neo-tree/neo-tree.nvim',
-  event = { 'CmdLineEnter', 'BufRead' },
+  event = { 'BufRead' },
   keys = {'<C-n>'},
   dependencies = {
     'nvim-tree/nvim-web-devicons',

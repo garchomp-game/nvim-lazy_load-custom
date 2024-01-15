@@ -1,6 +1,6 @@
 return {
   'nvim-tree/nvim-web-devicons',
-  event = { 'CmdLineEnter', 'BufRead' },
+  event = { 'BufRead' },
   opts = function()
     require'nvim-web-devicons'.setup {
       -- your personnal icons can go here (to override)

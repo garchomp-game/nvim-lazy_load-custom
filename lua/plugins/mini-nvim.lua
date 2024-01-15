@@ -1,5 +1,5 @@
 return {
   'echasnovski/mini.nvim',
-  event = { 'CmdLineEnter', 'BufRead' },
+  event = { 'BufRead' },
   version = false,
 }

@@ -1,7 +1,7 @@
 return {
   'garchomp-game/nvim-typing-game',
   dev = "true",
-  event = { 'CmdLineEnter', 'BufRead' },
+  event = { 'CmdLineEnter' },
   keys = { '<leader>t' },
   config = function()
     vim.api.nvim_set_keymap(

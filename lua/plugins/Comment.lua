@@ -1,8 +1,8 @@
 return {
   'numtostr/comment.nvim',
-  opts = {
-    -- add any options here
-  },
-  lazy = false
+  event = { 'BufRead' },
+  opts = function()
+
+  end
 }
 

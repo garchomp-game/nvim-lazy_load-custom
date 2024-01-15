@@ -1,6 +1,6 @@
 return {
   'nvim-telescope/telescope.nvim',
-  event = { 'CmdLineEnter', 'BufRead' },
+  event = { 'BufRead' },
   opts = function()
 
     require('telescope').setup{

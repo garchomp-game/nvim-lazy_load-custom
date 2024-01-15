@@ -1,4 +1,4 @@
 return {
   'unblevable/quick-scope',
-  event = { 'CmdLineEnter', 'BufRead' },
+  event = { 'BufRead' },
 }

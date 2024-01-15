@@ -1,6 +1,6 @@
 return {
   'Sol-Ponz/plantuml-previewer.nvim',
-  event = { 'CmdLineEnter', 'BufRead' },
+  event = { 'CmdLineEnter' },
   opts = function()
     local home = vim.env.HOME
     require("plantuml-previewer").setup {

@@ -1,11 +1,11 @@
 return {
   {
     'nvim-treesitter/playground',
-    event = { 'CmdLineEnter', 'BufRead' },
+    event = { 'BufRead' },
   },
   {
     'nvim-treesitter/nvim-treesitter',
-    event = { 'CmdLineEnter', 'BufRead' },
+    event = { 'BufRead' },
     dependencies = {
       'nvim-treesitter/playground',
     },
