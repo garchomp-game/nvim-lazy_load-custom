@@ -65,6 +65,8 @@ return {
         "markdownlint",
         "eslint-lsp",
         "vue-language-server",
+        "typescript-language-server",
+        "markdownlint-cli2",
       }
       if not is_termux() then
         table.insert(myList, "lua-language-server")
