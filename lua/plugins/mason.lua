@@ -39,7 +39,7 @@ return {
         }
 
         -- lua_ls の特別な設定を別ファイルで行う
-        if not is_termux() then
+        if not is_termux() and val == "lua_ls" then
           lua_ls.setup()
         else
           -- 他のLSPサーバに関する設定
