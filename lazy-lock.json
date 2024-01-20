@@ -34,7 +34,6 @@
   "tabular": { "branch": "master", "commit": "339091ac4dd1f17e225fe7d57b48aff55f99b23a" },
   "telescope.nvim": { "branch": "master", "commit": "ae6708a90b89a686f85b51288f488f4186dff2d4" },
   "toggleterm.nvim": { "branch": "main", "commit": "cbd041d91b90cd3c02df03fe6133208888f8e008" },
-  "tokyonight.nvim": { "branch": "main", "commit": "f247ee700b569ed43f39320413a13ba9b0aef0db" },
   "translate.vim": { "branch": "master", "commit": "7141ef44c68c06ccd7b8b3f97432330613207f80" },
   "vim-maketable": { "branch": "master", "commit": "d72e73f333c64110524197ec637897bd1464830f" },
   "vim-shakyo": { "branch": "main", "commit": "c77a978da238402d5d2994ffc19c8f68c28ce9a0" },

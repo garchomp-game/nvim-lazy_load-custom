@@ -1,18 +1,18 @@
 return {
-  'nvim-neo-tree/neo-tree.nvim',
+  'kyazdani42/nvim-tree.lua',
   event = { 'BufRead' },
-  keys = {'<C-n>'},
   dependencies = {
     'nvim-tree/nvim-web-devicons',
-    "nvim-lua/plenary.nvim",
-    "MunifTanjim/nui.nvim",
   },
+  keys = {'<C-n>'},
   config = function()
     vim.api.nvim_set_keymap(
       'n','<C-n>',
-      ':Neotree toggle<CR>',
+      ':NvimTreeToggle<CR>',
       { noremap = true, silent = true }
     )
-    require('neo-tree').setup()
-  end,
+    require'nvim-tree'.setup {
+      -- ここにnvim-treeの設定を記述
+    }
+  end
 }
