@@ -19,6 +19,8 @@ return {
         "emmet_ls",
         "eslint",
         "volar",
+        -- "phpactor",
+        -- "psalm",
       }
 
       if not is_termux() then
@@ -67,6 +69,8 @@ return {
         "vue-language-server",
         "typescript-language-server",
         "markdownlint-cli2",
+        -- "phpactor",
+        -- "psalm",
       }
       if not is_termux() then
         table.insert(myList, "lua-language-server")
