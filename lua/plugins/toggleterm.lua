@@ -1,9 +1,12 @@
 return {
   -- amongst your other plugins
   'akinsho/toggleterm.nvim',
-  lazy = false,
+  event = { 'BufRead' },
   version = "*",
-  opts = function()
+  keys = {
+    [[<c-\>]],
+  },
+  config = function()
     require("toggleterm").setup{
       open_mapping = [[<c-\>]],
     }
@@ -23,3 +26,4 @@ return {
     vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
   end,
 }
+
