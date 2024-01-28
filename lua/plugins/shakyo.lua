@@ -7,8 +7,6 @@ return {
     vim.api.nvim_set_keymap('n', '<leader>r', '<Plug>(shakyo-run)', { noremap = false, silent = true })
     vim.api.nvim_set_keymap('n', '<leader>q', '<Plug>(shakyo-quit)', { noremap = false, silent = true })
     vim.api.nvim_set_keymap('n', '<leader>c', '<Plug>(shakyo-clue)', { noremap = false, silent = true })
-  end,
-  opts = function()
     -- カスタムハイライトグループの宣言
     local shakyoCompletedHighlight = "ShakyoCompleted"
     local shakyoWrongHighlight = "ShakyoWrong"

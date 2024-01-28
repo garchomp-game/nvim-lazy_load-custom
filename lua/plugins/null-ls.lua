@@ -4,7 +4,7 @@ return {
   dependencies = {
     'williamboman/mason-lspconfig.nvim'
   },
-  opts = function()
+  config = function()
     local null_ls = require("null-ls")
     -- `null-ls`のセットアップ
     null_ls.setup({

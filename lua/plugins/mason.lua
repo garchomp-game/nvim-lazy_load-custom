@@ -12,7 +12,6 @@ return {
     },
     config = function()
       local is_termux = utils.is_termux
-      local mr = require("mason-registry")
       local language_server_list = {
         "jdtls",
         "tsserver",

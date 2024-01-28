@@ -11,8 +11,5 @@ return {
       ':NvimTreeToggle<CR>',
       { noremap = true, silent = true }
     )
-    require'nvim-tree'.setup {
-      -- ここにnvim-treeの設定を記述
-    }
   end
 }

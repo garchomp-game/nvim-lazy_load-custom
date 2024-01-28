@@ -7,9 +7,6 @@ return {
     [[<c-\>]],
   },
   config = function()
-    require("toggleterm").setup{
-      open_mapping = [[<c-\>]],
-    }
     function _G.set_terminal_keymaps()
       local opts = {buffer = 0}
       vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
@@ -21,9 +18,11 @@ return {
       vim.keymap.set('t', '<C-p>', [[<Up>]], opts)  -- ここに追加
       vim.keymap.set('t', '<C-n>', [[<Down>]], opts)  -- ここに追加
     end
-
     -- if you only want these mappings for toggle term use term://*toggleterm#* instead
     vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
   end,
+  opts = {
+    open_mapping = [[<c-\>]],
+  }
 }
 

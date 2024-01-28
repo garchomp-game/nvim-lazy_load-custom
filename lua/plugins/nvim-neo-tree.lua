@@ -13,6 +13,5 @@ return {
       ':Neotree toggle<CR>',
       { noremap = true, silent = true }
     )
-    require('neo-tree').setup()
   end,
 }
