@@ -1,6 +1,5 @@
 local M = {}
 
--- プライベート変数
 local is_initial_setup_done = false
 
 -- Termux環境かどうかをチェックする関数
