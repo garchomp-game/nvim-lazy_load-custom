@@ -1,4 +1,4 @@
-# nvim-lazy_load-custom
+# nvIm-lazy_load-custom
 
 `nvim-lazy_load-custom` is a starter kit for Neovim that primarily focuses on plugin management and optimizing startup time. It comes pre-setup with various plugins.
 
@@ -24,28 +24,37 @@ Plugins can be added as follows:
 
 ```lua
 return {
-  'username/repositoryname',
-  opts = function()
-    -- more options...
-  end,
+    'username/repositoryname',
+    config = function()
+        -- more configuration
+    end,
+    opts = {
+        -- more options...
+    },
 }
 ```
 
 If there are dependencies for specific plugins, you can group them together like this:
 ```lua
 return {
-  {
-    'username/repositoryname',
-    opts = function()
-      -- more options...
-    end,
-  },
-  {
-    'username/repositoryname2',
-    opts = function()
-      -- more options...
-    end,
-  }
+    {
+        'username/repositoryname',
+        config = function()
+            -- more configuration
+        end,
+        opts = {
+            -- more options...
+        },
+    },
+    {
+        'username/repositoryname2',
+        config = function()
+            -- more configuration
+        end,
+        opts = {
+            -- more options...
+        },
+    }
 }
 ```
 
