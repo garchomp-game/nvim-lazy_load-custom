@@ -1,11 +1,14 @@
+local utils = require('utils')
+local load_event = utils.get_is_initial_setup_done() and 'VimEnter' or 'BufRead'
+
 return {
   {
     'nvim-treesitter/playground',
-    event = { 'BufRead' },
+    event = { load_event },
   },
   {
     'nvim-treesitter/nvim-treesitter',
-    event = { 'BufRead' },
+    event = { load_event },
     dependencies = {
       'nvim-treesitter/playground',
     },
@@ -66,7 +69,7 @@ return {
         modules = {
           -- モジュール設定...
         },
-        sync_install = true,  -- 同期インストールを無効にする
+        sync_install = false,  -- 同期インストールを無効にする
         ignore_install = { "javascript" },  -- 特定の言語のインストールを無視
         auto_install = true,  -- 自動インストールを有効にする
       }

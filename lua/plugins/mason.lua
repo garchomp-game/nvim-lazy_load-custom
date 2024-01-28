@@ -1,16 +1,19 @@
+local utils = require('utils')
+local load_event = utils.get_is_initial_setup_done() and 'VimEnter' or 'BufRead'
+
 return {
   {
     'williamboman/mason-lspconfig.nvim',
-    event = { 'CmdLineEnter', 'BufRead' },
+    event = { load_event },
     dependencies = {
       'williamboman/mason.nvim',
       'hrsh7th/nvim-cmp',
       'folke/neodev.nvim' -- neodevを追加
     },
-    opts = function()
-      local is_termux = require('utils').is_termux
+    config = function()
+      local is_termux = utils.is_termux
+      local mr = require("mason-registry")
       local language_server_list = {
-        "intelephense",
         "jdtls",
         "tsserver",
         "cssls",
@@ -19,6 +22,7 @@ return {
         "emmet_ls",
         "eslint",
         "volar",
+        "intelephense",
         -- "phpactor",
         -- "psalm",
       }
@@ -52,11 +56,10 @@ return {
   },
   {
     'williamboman/mason.nvim',
-    event = { 'CmdLineEnter', 'BufRead' },
-    opts = function()
-      local is_termux = require('utils').is_termux
+    event = { load_event },
+    config = function()
+      local is_termux = utils.is_termux
       local myList = {
-        "intelephense",
         "bash-debug-adapter",
         "bash-language-server",
         "vim-language-server",
@@ -69,6 +72,7 @@ return {
         "vue-language-server",
         "typescript-language-server",
         "markdownlint-cli2",
+        "intelephense",
         -- "phpactor",
         -- "psalm",
       }
@@ -78,15 +82,22 @@ return {
 
       local function check()
         local mr = require("mason-registry")
-        for _, tool in ipairs(myList) do
-          local p = mr.get_package(tool)
-          if not p:is_installed() then
-            p:install()
+        -- パッケージリストを更新し、完了後に各パッケージのインストール状態をチェック
+        mr.refresh(function ()
+          for _, tool in ipairs(myList) do
+            local p = mr.get_package(tool)
+            if not p:is_installed() then
+              p:install()
+            end
           end
-        end
+        end)
       end
 
       require("mason").setup()
+      -- 初期セットアップが完了したかどうかを確認
+      if utils.get_is_initial_setup_done() then
+        vim.cmd("Mason")
+      end
       check()
     end,
   },
