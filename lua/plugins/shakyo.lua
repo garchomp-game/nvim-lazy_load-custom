@@ -16,7 +16,7 @@ return {
     vim.cmd('hi ' .. shakyoWrongHighlight .. ' guifg=#ffffff guibg=#ff0000')
 
     -- shakyoプラグインのハイライト設定をカスタムグループに変更
-    vim.call('shakyo#config', {
+    vim.fn['shakyo#config']({
       highlight = {
         completed = shakyoCompletedHighlight,
         wrong = shakyoWrongHighlight
