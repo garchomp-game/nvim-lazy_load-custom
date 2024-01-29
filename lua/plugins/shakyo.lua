@@ -1,6 +1,6 @@
 return {
   'NI57721/vim-shakyo',
-  event = { 'BufRead' },
+  event = "VeryLazy",
   keys = { '<leader>r', '<leader>q', '<leader>c' },
   config = function()
     -- キーマッピングの設定

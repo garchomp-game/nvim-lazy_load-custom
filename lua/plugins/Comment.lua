@@ -1,6 +1,6 @@
 return {
   'numtostr/comment.nvim',
-  event = { 'BufRead' },
+  event = "VeryLazy",
   config = true
 }
 

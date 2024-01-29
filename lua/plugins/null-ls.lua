@@ -1,6 +1,6 @@
 return {
   'nvimtools/none-ls.nvim',
-  event = { 'CmdLineEnter', 'BufRead' },
+  event = "VeryLazy",
   dependencies = {
     'williamboman/mason-lspconfig.nvim'
   },

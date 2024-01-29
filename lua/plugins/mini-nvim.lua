@@ -1,5 +1,5 @@
 return {
   'echasnovski/mini.nvim',
-  event = { 'BufRead' },
+  event = "VeryLazy",
   version = false,
 }

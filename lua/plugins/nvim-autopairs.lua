@@ -1,5 +1,5 @@
 return {
   'windwp/nvim-autopairs',
-  event = { 'BufRead' },
+  event = "VeryLazy",
   config = true
 }

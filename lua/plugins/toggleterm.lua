@@ -1,7 +1,7 @@
 return {
   -- amongst your other plugins
   'akinsho/toggleterm.nvim',
-  event = { 'BufRead' },
+  event = "VeryLazy",
   version = "*",
   keys = {
     [[<c-\>]],

@@ -1,5 +1,5 @@
 local utils = require('utils')
-local load_event = utils.get_is_initial_setup_done() and 'VimEnter' or 'BufRead'
+local load_event = utils.get_is_initial_setup_done() and 'VimEnter' or 'VeryLazy'
 
 return {
   {

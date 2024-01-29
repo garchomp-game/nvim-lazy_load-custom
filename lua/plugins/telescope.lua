@@ -1,6 +1,6 @@
 return {
   'nvim-telescope/telescope.nvim',
-  event = { 'BufRead' },
+  event = "VeryLazy",
   config = function()
     local builtin = require('telescope.builtin')
     vim.keymap.set('n', '<space>ff', builtin.find_files, {})

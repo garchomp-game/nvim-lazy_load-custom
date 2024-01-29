@@ -1,5 +1,5 @@
 return {
   "stevearc/aerial.nvim",
-  event = { 'CmdLineEnter', 'BufRead' },
+  event = { 'CmdLineEnter' },
   opts = {}
 }

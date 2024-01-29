@@ -1,4 +1,4 @@
 return {
   'folke/neodev.nvim',
-  event = { 'BufRead' },
+  event = "VeryLazy",
 }

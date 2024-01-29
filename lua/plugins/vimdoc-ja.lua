@@ -1,4 +1,4 @@
 return {
   'vim-jp/vimdoc-ja',
-  event = { 'CmdLineEnter' },
+  event = "VeryLazy",
 }

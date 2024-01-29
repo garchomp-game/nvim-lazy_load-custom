@@ -1,7 +1,7 @@
 return {
   {
     'Exafunction/codeium.vim',
-    event = { 'CmdLineEnter', 'BufRead' },
+    event = "VeryLazy",
     keys = {
       '<C-g>',
       '<c-;>',
