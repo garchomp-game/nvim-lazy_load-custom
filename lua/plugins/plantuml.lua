@@ -1,8 +1,9 @@
 return {
-  'Sol-Ponz/plantuml-previewer.nvim',
+  'weirongxu/plantuml-previewer.vim',
   event = "VeryLazy",
-  opts = {
-    plantuml_jar = vim.env.HOME .. "/plantuml.jar",
-    java_command = "/usr/bin/java",
+  dependencies = {
+    'tyru/open-browser.vim',
+    'aklt/plantuml-syntax'
   },
+  config = function() end,
 }
