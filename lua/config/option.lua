@@ -10,6 +10,7 @@ vim.opt.showcmd = true
 vim.opt.ruler = true
 vim.opt.ignorecase = true
 vim.opt.foldenable = false
+vim.opt.termguicolors = true
 vim.api.nvim_create_autocmd("VimEnter", {
   pattern = "*",
   callback = function()
