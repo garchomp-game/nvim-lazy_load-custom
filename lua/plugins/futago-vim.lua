@@ -5,7 +5,6 @@ return {
     "vim-denops/denops.vim",
   },
   config = function()
-<<<<<<< HEAD
     -- Denopsの設定をLuaで設定
     vim.g['denops#server#deno_args'] = {'-q', '--no-lock', '--unstable-kv', '-A'}
 
@@ -15,10 +14,3 @@ return {
     end, {})
   end,
 }
-
-=======
-    vim.g['denops#server#deno_args'] = {'-q', '--no-lock', '--unstable-kv', '-A'}
-    vim.cmd('command! FutagoStart call futago#start_chat()')
-  end
-}
->>>>>>> refs/remotes/origin/main
