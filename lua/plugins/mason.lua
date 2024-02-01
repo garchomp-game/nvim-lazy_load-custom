@@ -62,7 +62,6 @@ return {
         "bash-debug-adapter",
         "bash-language-server",
         "vim-language-server",
-        "remark-language-server",
         "prettier",
         "json-lsp",
         "textlint",
