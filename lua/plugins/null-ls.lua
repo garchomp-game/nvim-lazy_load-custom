@@ -9,9 +9,6 @@ return {
     -- `null-ls`のセットアップ
     null_ls.setup({
       sources = {
-        null_ls.builtins.diagnostics.markdownlint_cli2.with {
-          args = { "$FILENAME" },
-        },
       },
     })
   end,
