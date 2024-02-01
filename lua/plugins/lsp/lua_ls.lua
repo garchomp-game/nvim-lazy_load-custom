@@ -39,6 +39,7 @@ local function library(plugins)
   table.insert(paths, vim.fs.joinpath(config_path, "lua"))
   table.insert(paths, vim.fs.joinpath(vimruntime_path, "lua"))
   table.insert(paths, "${3rd}/luv/library")
+  table.insert(paths, "${3rd}/libuv/library")
   table.insert(paths, "${3rd}/busted/library")
   table.insert(paths, "${3rd}/luassert/library")
   return paths
