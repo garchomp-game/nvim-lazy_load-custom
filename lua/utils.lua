@@ -23,12 +23,11 @@ function M.set_is_initial_setup_done(value)
   is_initial_setup_done = value
 end
 
-function M.onVimEnter(callbackFn)
-  vim.api.nvim_create_autocmd("VimEnter", {
-    pattern = "*",
-    callback = function()
-      vim.defer_fn(callbackFn, 100)  -- VimEnterの0.1秒後に引数で渡された関数を実行
-    end
+function M.setupVeryLazy(callbackFn)
+  -- VeryLazy イベントのための autocmd を作成
+  vim.api.nvim_create_autocmd("User", {
+    pattern = "VeryLazy",
+    callback = callbackFn
   })
 end
 

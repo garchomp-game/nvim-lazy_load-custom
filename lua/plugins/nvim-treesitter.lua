@@ -1,9 +1,8 @@
 local utils = require('utils')
-local load_event = utils.get_is_initial_setup_done() and 'VimEnter' or 'VeryLazy'
 
 return {
   'nvim-treesitter/nvim-treesitter',
-  event = { load_event },
+  lazy = false,
   dependencies = {
     'nvim-treesitter/playground',
   },

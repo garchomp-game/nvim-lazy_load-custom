@@ -4,7 +4,7 @@ local load_event = utils.get_is_initial_setup_done() and 'VimEnter' or 'VeryLazy
 return {
   {
     'williamboman/mason-lspconfig.nvim',
-    event = { load_event },
+    event = load_event,
     dependencies = {
       'williamboman/mason.nvim',
       'hrsh7th/nvim-cmp',
