@@ -22,8 +22,8 @@ return {
         "eslint",
         "volar",
         "intelephense",
-        -- "phpactor",
-        -- "psalm",
+        "phpactor",
+        "psalm",
       }
 
       if not is_termux() then
@@ -69,8 +69,10 @@ return {
         "vue-language-server",
         "typescript-language-server",
         "intelephense",
-        -- "phpactor",
-        -- "psalm",
+        "jdtls",
+        "java-language-server",
+        "phpactor",
+        "psalm",
       }
       if not is_termux() then
         table.insert(myList, "lua-language-server")
