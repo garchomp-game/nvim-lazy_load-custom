@@ -8,15 +8,6 @@ local configs = {
   }
 }
 
-local home = vim.env.HOME
-local lombok = data .. "/mason/packages/jdtls/lombok.jar"
-
-if vim.fn.filereadable(home .. lombok) then
-  vim.env.JDTLS_JVM_ARGS="-javaagent:"
-  .. home
-  .. lombok
-end
-
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
     "git",

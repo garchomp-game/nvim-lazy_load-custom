@@ -31,4 +31,20 @@ function M.setupVeryLazy(callbackFn)
   })
 end
 
+---テーブルの内容を再帰的に表示します。
+---@param tbl table 表示するテーブル。
+---@param indent? string 現在のインデント（再帰的に使用されます）。オプショナル。
+function M.printTableContents(tbl, indent)
+    indent = indent or ""
+    for k, v in pairs(tbl) do
+        if type(v) == "table" then
+            print(indent .. tostring(k) .. ": {")
+            M.printTableContents(v, indent .. "  ")
+            print(indent .. "}")
+        else
+            print(indent .. tostring(k) .. ": " .. tostring(v))
+        end
+    end
+end
+
 return M
