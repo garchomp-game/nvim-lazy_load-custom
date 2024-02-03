@@ -8,11 +8,11 @@ local configs = {
   }
 }
 
-local lombok = data .. "/mason/packages/jdtls/lombok.jar"
-
-if vim.fn.filereadable(lombok) then
-  vim.env.JDTLS_JVM_ARGS="-javaagent:" .. lombok
-end
+-- local lombok = data .. "/mason/packages/jdtls/lombok.jar"
+--
+-- if vim.fn.filereadable(lombok) then
+--   vim.env.JDTLS_JVM_ARGS="-javaagent:" .. lombok
+-- end
 
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({

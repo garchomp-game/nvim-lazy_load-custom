@@ -31,7 +31,7 @@ return {
       end
 
       local lua_ls = require('plugins.lsp.lua_ls') -- lua_lsの設定をインポート
-
+      local jdtls = require('plugins.lsp.jdtls')
       require("mason-lspconfig").setup{
         ensure_installed = language_server_list,
       }
@@ -45,11 +45,12 @@ return {
 
         -- lua_ls の特別な設定を別ファイルで行う
         if not is_termux() and val == "lua_ls" then
-          lua_ls.setup()
-        else
-          -- 他のLSPサーバに関する設定
-          require("lspconfig")[val].setup(server_opts)
+          server_opts = lua_ls.get_server_opts(server_opts)
+        elseif val == "jdtls" then
+          jdtls.option()
         end
+        -- 他のLSPサーバに関する設定
+        require("lspconfig")[val].setup(server_opts)
       end
     end,
   },

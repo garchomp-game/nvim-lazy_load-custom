@@ -1,4 +1,4 @@
-local is_termux = require('utils').is_termux
+local M = {}
 
 ---指定されたプラグイン名のパスを取得します。
 ---@param names string[] プラグイン名の配列。
@@ -7,24 +7,9 @@ local function get_plugin_paths(names)
   local plugins = require("lazy.core.config").plugins
   local paths = {}
   for _, name in ipairs(names) do
-    if plugins[name] then
-      table.insert(paths, vim.fs.joinpath(plugins[name].dir, "lua"))
-    else
-      vim.notify("Invalid plugin name: " .. name)
-    end
+    table.insert(paths, vim.fs.joinpath(plugins[name].dir, "lua"))
   end
   return paths
-end
-
----Neovimのユーザー設定ディレクトリのパスを取得します。
----@return string|nil ユーザー設定ディレクトリのパス。
-local function get_config_path()
-  local config_path = vim.fn.stdpath("config")
-  if type(config_path) == "table" then
-    -- 文字列の配列の場合、最初の要素を使用
-    config_path = config_path[1]
-  end
-  return config_path
 end
 
 ---指定されたプラグインと標準パスからライブラリパスを生成します。
@@ -32,7 +17,11 @@ end
 ---@return string[] ライブラリのパスの配列。
 local function library(plugins)
   local paths = get_plugin_paths(plugins)
-  local config_path = get_config_path()
+  local config_path = vim.fn.stdpath("config")
+  if type(config_path) ~= "string" then
+    -- ここでエラーを通知するか、デフォルト値を設定する
+    config_path = ""
+  end
   local vimruntime_path = vim.env.VIMRUNTIME
 
   -- パスの結合を行う
@@ -45,40 +34,29 @@ local function library(plugins)
   return paths
 end
 
----lua_lsのLSP設定を行います。
-local function setup_lua_ls()
-  local capabilities = require('cmp_nvim_lsp').default_capabilities()
-  local server_opts = {
-    capabilities = capabilities,
+---lua_lsのLSP設定を取得します。
+---@param server_opts table 予め設定されているserver_opts
+---@return table 設定されたserver_opts
+function M.get_server_opts(server_opts)
+  server_opts.settings = {
+    Lua = {
+      runtime = {
+        version = 'LuaJIT',
+      },
+      diagnostics = {
+        globals = {'vim', 'require'},
+      },
+      workspace = {
+        library = library({"lazy.nvim"}),
+        checkThirdParty = false,
+      },
+      telemetry = {
+        enable = false,
+      },
+    }
   }
 
-  -- Termux環境でない場合のみ設定を適用
-  if not is_termux() then
-    server_opts = require("neodev").setup(server_opts)
-    server_opts.settings = {
-      Lua = {
-        runtime = {
-          version = 'LuaJIT',
-        },
-        diagnostics = {
-          globals = {'vim', 'require'},
-          enable = true,
-          disable = { "lowercase-global" },  -- 必要に応じて無効にする警告を指定
-        },
-        workspace = {
-          library = library({"lazy.nvim"}),
-          checkThirdParty = false,  -- 第三者のライブラリのチェックを行うかどうか
-        },
-        telemetry = {
-          enable = false,
-        },
-      }
-    }
-  end
-
-  require("lspconfig")['lua_ls'].setup(server_opts)
+  return server_opts
 end
 
-return {
-  setup = setup_lua_ls
-}
+return M
