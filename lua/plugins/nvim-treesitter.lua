@@ -49,6 +49,10 @@ return {
         "markdown",
         "markdown_inline",
         "blade",
+        "html",
+        "css",
+        "scss",
+        "pug",
       },
       highlight = {
         enable = true,
