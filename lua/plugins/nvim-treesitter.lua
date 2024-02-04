@@ -1,5 +1,3 @@
-local utils = require('utils')
-
 return {
   'nvim-treesitter/nvim-treesitter',
   lazy = false,
@@ -19,7 +17,6 @@ return {
       },
       filetype = "blade"
     }
-
     require'nvim-treesitter.configs'.setup {
       -- A list of parser names, or "all" (the four listed parsers should always be installed)
       playground = {
@@ -64,7 +61,7 @@ return {
         -- モジュール設定...
       },
       sync_install = false,  -- 同期インストールを無効にする
-      ignore_install = { "javascript" },  -- 特定の言語のインストールを無視
+      ignore_install = { },  -- 特定の言語のインストールを無視
       auto_install = true,  -- 自動インストールを有効にする
     }
   end,
