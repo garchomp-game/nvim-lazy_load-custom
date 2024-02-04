@@ -23,7 +23,7 @@ function M.set_is_initial_setup_done(value)
   is_initial_setup_done = value
 end
 
-function M.setupVeryLazy(callbackFn)
+function M.setup_very_lazy(callbackFn)
   -- VeryLazy イベントのための autocmd を作成
   vim.api.nvim_create_autocmd("User", {
     pattern = "VeryLazy",
@@ -31,20 +31,20 @@ function M.setupVeryLazy(callbackFn)
   })
 end
 
----テーブルの内容を再帰的に表示します。
----@param tbl table 表示するテーブル。
----@param indent? string 現在のインデント（再帰的に使用されます）。オプショナル。
-function M.printTableContents(tbl, indent)
-    indent = indent or ""
-    for k, v in pairs(tbl) do
-        if type(v) == "table" then
-            print(indent .. tostring(k) .. ": {")
-            M.printTableContents(v, indent .. "  ")
-            print(indent .. "}")
-        else
-            print(indent .. tostring(k) .. ": " .. tostring(v))
-        end
+function M.print_table(t, indent)
+  indent = indent or ""
+  if type(t) ~= "table" then
+    print(indent .. tostring(t))
+  else
+    for k, v in pairs(t) do
+      if type(v) == "table" then
+        print(indent .. tostring(k) .. ":")
+        M.print_table(v, indent .. "  ")
+      else
+        print(indent .. tostring(k) .. ": " .. tostring(v))
+      end
     end
+  end
 end
 
 return M

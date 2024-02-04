@@ -45,7 +45,7 @@ return {
 
         -- lua_ls の特別な設定を別ファイルで行う
         if not is_termux() and val == "lua_ls" then
-          server_opts = lua_ls.get_server_opts(server_opts)
+          server_opts = lua_ls.custom_server_opts(server_opts)
         elseif val == "jdtls" then
           jdtls.option()
         end
@@ -74,6 +74,7 @@ return {
         "java-language-server",
         "phpactor",
         "psalm",
+        "stylua",
       }
       if not is_termux() then
         table.insert(myList, "lua-language-server")

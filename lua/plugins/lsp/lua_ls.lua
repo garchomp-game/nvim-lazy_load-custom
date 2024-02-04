@@ -37,7 +37,7 @@ end
 ---lua_lsのLSP設定を取得します。
 ---@param server_opts table 予め設定されているserver_opts
 ---@return table 設定されたserver_opts
-function M.get_server_opts(server_opts)
+function M.custom_server_opts(server_opts)
   server_opts.settings = {
     Lua = {
       runtime = {

@@ -14,6 +14,6 @@ vim.opt.ignorecase = true
 vim.opt.foldenable = false
 vim.opt.termguicolors = true
 
-utils.setupVeryLazy(function()
+utils.setup_very_lazy(function()
   vim.opt.clipboard = "unnamedplus"
 end)
