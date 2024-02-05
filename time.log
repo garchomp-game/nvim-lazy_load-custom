@@ -1,0 +1,132 @@
+Extra options: []
+Measured: 10 times
+
+Total Average: 36.073000 msec
+Total Max:     38.870000 msec
+Total Min:     32.726000 msec
+
+  AVERAGE       MAX       MIN
+------------------------------
+26.769800 30.110000 23.608000: /home/garchomp-game/.config/nvim/init.lua
+ 2.539000  4.116000  1.815000: /home/garchomp-game/.local/share/nvim/lazy/nvim-base16/colors/base16-monokai.vim
+ 1.563000  1.909000  1.393000: reading ShaDa
+ 0.785300  0.959000  0.613000: require('lazy.view.commands')
+ 0.780600  1.006000  0.654000: require('lualine')
+ 0.670900  0.842000  0.493000: require('lazy.manage')
+ 0.642000  0.767000  0.584000: sourcing vimrc file(s)
+ 0.633200  0.890000  0.571000: require('lazy')
+ 0.561600  1.163000  0.384000: require('base16-colorscheme')
+ 0.549500  0.783000  0.431000: require('config')
+ 0.536500  0.688000  0.396000: require('lazy.manage.runner')
+ 0.463700  0.743000  0.375000: init lua interpreter
+ 0.386100  0.528000  0.295000: require('lazy.core.loader')
+ 0.383200  0.573000  0.336000: /home/garchomp-game/.local/share/nvim/lazy/denops.vim/plugin/denops.vim
+ 0.375500  0.460000  0.321000: init highlight
+ 0.308100  0.468000  0.254000: inits 1
+ 0.299500  0.355000  0.247000: require('vim._defaults')
+ 0.290900  0.539000  0.128000: /usr/share/nvim/runtime/plugin/osc52.lua
+ 0.284000  0.414000  0.206000: require('lazy.manage.task')
+ 0.281400  0.364000  0.222000: event init
+ 0.243000  0.317000  0.164000: require('lazy.stats')
+ 0.242200  0.314000  0.209000: require('vim._init_packages')
+ 0.234500  0.314000  0.171000: require('vim.diagnostic')
+ 0.223300  0.303000  0.200000: /usr/share/nvim/runtime/syntax/syntax.vim
+ 0.221900  0.400000  0.136000: require('config.option')
+ 0.219800  0.426000  0.067000: require('vim.iter')
+ 0.197300  0.372000  0.063000: require('plugins.actions-preview')
+ 0.195550  0.491000  0.037000: /usr/share/nvim/runtime/filetype.lua
+ 0.169000  0.191000  0.148000: require('vim.loader')
+ 0.168500  0.325000  0.121000: opening buffers
+ 0.163800  0.313000  0.110000: require('config.mappings')
+ 0.161300  0.311000  0.089000: require('lazy.manage.process')
+ 0.157800  0.233000  0.140000: /usr/share/nvim/runtime/plugin/rplugin.vim
+ 0.153900  0.329000  0.090000: require('lazy.core.plugin')
+ 0.139600  0.187000  0.126000: require('vim._editor')
+ 0.137300  0.244000  0.068000: require('plugins.Comment')
+ 0.136300  0.196000  0.117000: /home/garchomp-game/.local/share/nvim/lazy/denops.vim/autoload/denops.vim
+ 0.133300  0.179000  0.118000: inits 3
+ 0.132200  0.182000  0.091000: require('lazy.util')
+ 0.128200  0.209000  0.073000: require('plugins.aerial')
+ 0.121700  0.132000  0.111000: require('vim.uri')
+ 0.121300  0.240000  0.088000: early init
+ 0.121200  0.180000  0.078000: require('lazy.core.util')
+ 0.119800  0.235000  0.054000: require('lazy.core.handler.ft')
+ 0.118000  0.193000  0.080000: require('lazy.core.config')
+ 0.111400  0.160000  0.073000: BufEnter autocommands
+ 0.109700  0.242000  0.058000: require('plugins.codeium')
+ 0.104200  0.144000  0.085000: require('lazy.core.handler.event')
+ 0.093700  0.108000  0.080000: require('lazy.core.handler.keys')
+ 0.092500  0.117000  0.082000: require('plugins.telescope')
+ 0.085800  0.200000  0.048000: require('lualine.utils.mode')
+ 0.085100  0.174000  0.046000: require('plugins.futago-vim')
+ 0.082600  0.138000  0.067000: require('utils')
+ 0.079500  0.100000  0.069000: require('plugins.nvim-neo-tree')
+ 0.079400  0.107000  0.048000: require('config.command')
+ 0.079300  0.094000  0.066000: require('lazy.core.handler.cmd')
+ 0.078400  0.178000  0.040000: require('plugins.mason')
+ 0.078200  0.144000  0.040000: require('plugins.lua-guide-ja')
+ 0.076900  0.183000  0.046000: require('plugins.toggleterm')
+ 0.076800  0.129000  0.056000: /usr/share/nvim/runtime/plugin/man.lua
+ 0.075800  0.126000  0.054000: require('lualine_require')
+ 0.074200  0.095000  0.061000: /usr/share/nvim/runtime/plugin/editorconfig.lua
+ 0.073800  0.136000  0.056000: /usr/share/nvim/runtime/plugin/shada.vim
+ 0.072300  0.111000  0.064000: /usr/share/nvim/runtime/syntax/synload.vim
+ 0.071900  0.095000  0.041000: require('plugins.diffview')
+ 0.071800  0.116000  0.035000: require('plugins.neodev')
+ 0.068800  0.137000  0.052000: require('plugins.nvim-treesitter')
+ 0.067900  0.094000  0.059000: require('lazy.core.handler')
+ 0.064700  0.125000  0.048000: /usr/share/nvim/runtime/plugin/nvim.lua
+ 0.063600  0.190000  0.037000: require('plugins.nvim-devicons')
+ 0.061100  0.145000  0.035000: require('plugins.mini-nvim')
+ 0.060300  0.126000  0.042000: require('plugins.plantuml')
+ 0.059500  0.164000  0.039000: require('plugins.plenary')
+ 0.059400  0.115000  0.040000: require('plugins.nvim-typing-game')
+ 0.059300  0.087000  0.040000: require('plugins.tabular')
+ 0.059000  0.103000  0.042000: require('plugins.shakyo')
+ 0.057600  0.085000  0.048000: locale set
+ 0.055700  0.129000  0.037000: require('plugins.vimdoc-ja')
+ 0.054600  0.105000  0.043000: init first window
+ 0.054500  0.072000  0.038000: require('plugins.markdown-preview')
+ 0.054400  0.082000  0.034000: require('plugins.quick-scope')
+ 0.053900  0.070000  0.039000: inits 2
+ 0.053800  0.113000  0.035000: require('plugins.null-ls')
+ 0.052500  0.127000  0.033000: require('plugins.nvim-lspconfig')
+ 0.052100  0.072000  0.043000: require('plugins.nvim-cmp')
+ 0.051100  0.070000  0.042000: require('plugins.nvim-notify')
+ 0.051000  0.073000  0.037000: require('plugins.lualine')
+ 0.050400  0.088000  0.034000: require('plugins.prettier')
+ 0.050100  0.098000  0.034000: require('plugins.nvim-autopairs')
+ 0.049700  0.088000  0.035000: require('plugins.neogit')
+ 0.048800  0.060000  0.042000: /usr/share/nvim/runtime/ftplugin.vim
+ 0.048700  0.096000  0.036000: /home/garchomp-game/.local/share/nvim/lazy/denops.vim/plugin/denops/debug.vim
+ 0.048200  0.103000  0.035000: expanding arguments
+ 0.047900  0.060000  0.039000: require('plugins.vim-startuptime')
+ 0.047400  0.063000  0.033000: require('plugins.nui')
+ 0.046600  0.064000  0.036000: require('plugins.translate')
+ 0.046400  0.066000  0.023000: require('vim.fs')
+ 0.045000  0.065000  0.038000: require('vim.inspect')
+ 0.043900  0.075000  0.032000: require('vim.shared')
+ 0.043700  0.075000  0.034000: require('plugins.vim-maketable')
+ 0.043200  0.074000  0.033000: require('plugins.nvim-base16')
+ 0.037600  0.053000  0.035000: require('vim._options')
+ 0.027500  0.030000  0.026000: /usr/share/nvim/runtime/indent.vim
+ 0.023300  0.041000  0.016000: require('ffi')
+ 0.019900  0.057000  0.015000: /usr/share/nvim/runtime/plugin/matchit.vim
+ 0.019600  0.033000  0.017000: /home/garchomp-game/.local/share/nvim/lazy/futago.vim/plugin/futago.vim
+ 0.019100  0.020000  0.018000: /usr/share/nvim/runtime/plugin/tutor.vim
+ 0.018800  0.034000  0.015000: /usr/share/nvim/runtime/plugin/gzip.vim
+ 0.014900  0.029000  0.012000: /usr/share/nvim/runtime/plugin/tarPlugin.vim
+ 0.014100  0.015000  0.013000: /usr/share/nvim/runtime/plugin/zipPlugin.vim
+ 0.014000  0.015000  0.013000: /usr/share/nvim/runtime/plugin/netrwPlugin.vim
+ 0.013600  0.015000  0.012000: /usr/share/nvim/runtime/plugin/spellfile.vim
+ 0.013500  0.025000  0.012000: /usr/share/nvim/runtime/plugin/matchparen.vim
+ 0.013000  0.024000  0.006000: require('vim.F')
+ 0.012600  0.014000  0.012000: window checked
+ 0.012500  0.024000  0.010000: /usr/share/nvim/runtime/plugin/tohtml.vim
+ 0.010400  0.027000  0.008000: --- NVIM STARTING ---
+ 0.010400  0.011000  0.010000: /home/garchomp-game/.local/share/nvim/lazy/denops.vim/autoload/denops/_internal/conf.vim
+ 0.009800  0.014000  0.008000: clear screen
+ 0.005700  0.020000  0.004000: require('vim.keymap')
+ 0.005300  0.017000  0.004000: init default mappings & autocommands
+ 0.003500  0.007000  0.003000: editing files in windows
+ 0.002500  0.003000  0.002000: parsing arguments
