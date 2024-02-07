@@ -2,10 +2,10 @@ return {
   "aznhe21/actions-preview.nvim",
   event = "VeryLazy",
   keys = {
-    "gf"
+    "<leader>gf"
   },
   config = function()
-    vim.keymap.set({ "v", "n" }, "gf", require("actions-preview").code_actions)
+    vim.keymap.set({ "v", "n" }, "<leader>gf", require("actions-preview").code_actions)
   end,
 }
 
