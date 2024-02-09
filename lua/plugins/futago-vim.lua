@@ -1,4 +1,4 @@
-return {
+local M = {
   "yukimemi/futago.vim",
   lazy = false,
   dependencies = {
@@ -14,3 +14,10 @@ return {
     end, {})
   end,
 }
+
+local utils = require('utils')
+if utils.is_termux then
+  return {}
+else
+  return M
+end

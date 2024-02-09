@@ -1,4 +1,4 @@
-return {
+local M = {
   {
     'Exafunction/codeium.vim',
     event = "VeryLazy",
@@ -82,3 +82,9 @@ return {
     end
   }
 }
+local utils = require('utils')
+if utils.is_termux then
+  return {}
+else
+  return M
+end
