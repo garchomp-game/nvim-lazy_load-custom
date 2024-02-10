@@ -29,6 +29,30 @@ function M.setup_very_lazy(callbackFn)
     pattern = "VeryLazy",
     callback = callbackFn
   })
+  M.autocmd(
+    "User",
+    {
+      pattern = "VeryLazy",
+      callback = callbackFn
+    }
+  )
+end
+
+-- autocmdを設定する関数
+function M.autocmd(event, params, opts)
+  -- optsがnilの場合、空のテーブルをデフォルト値とする
+  opts = opts or {}
+  
+  -- nvim_create_autocmdに渡すオプションテーブルを構築
+  local autocmd_opts = {
+    pattern = params.pattern or "*", -- パターンが指定されていない場合のデフォルト値
+    group = vim.api.nvim_create_augroup(params.group or "VimEnter", {}),
+    callback = params.callback,
+    -- 追加のオプションがあればここに含める
+  }
+
+  -- イベントとオプションを使用してautocmdを作成
+  vim.api.nvim_create_autocmd(event, autocmd_opts)
 end
 
 function M.print_table(t, indent)
