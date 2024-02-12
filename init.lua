@@ -4,7 +4,7 @@ local lazypath = data .. "/lazy/lazy.nvim"
 local configs = {
   defaults = { lazy = true },
   dev = {
-    path = "~/workspace/pack"
+    path = vim.env.DEV_PLUGIN_PATH
   }
 }
 
