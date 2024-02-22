@@ -13,6 +13,9 @@ vim.opt.ruler = true
 vim.opt.ignorecase = true
 vim.opt.foldenable = false
 vim.opt.termguicolors = true
+-- markdownファイルのみタブ=スペース4個分になる現象をこれで解決できる
+-- ソース: https://www.reddit.com/r/neovim/comments/z2lhyz/when_i_insert_tab_it_expands_to_4_spaces_and_not/?rdt=60892
+vim.g.markdown_recommended_style = 0
 
 utils.setup_very_lazy(function()
   vim.opt.clipboard = "unnamedplus"
