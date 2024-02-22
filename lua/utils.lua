@@ -42,7 +42,7 @@ end
 function M.autocmd(event, params, opts)
   -- optsがnilの場合、空のテーブルをデフォルト値とする
   opts = opts or {}
-  
+
   -- nvim_create_autocmdに渡すオプションテーブルを構築
   local autocmd_opts = {
     pattern = params.pattern or "*", -- パターンが指定されていない場合のデフォルト値

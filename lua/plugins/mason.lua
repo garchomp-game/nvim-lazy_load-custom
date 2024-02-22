@@ -77,6 +77,7 @@ return {
         "phpactor",
         "psalm",
         "stylua",
+        "markdownlint",
       }
       if not is_termux() then
         table.insert(myList, "lua-language-server")
