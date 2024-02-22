@@ -71,4 +71,11 @@ function M.print_table(t, indent)
   end
 end
 
+---指定されたツールがシステム上で実行可能かどうかをチェックします。
+---@param name string チェックするツールの名前。
+---@return boolean `true` が返る場合、ツールは実行可能です。そうでなければ `false`。
+function M.tool_exists(name)
+  return vim.fn.executable(name) > 0
+end
+
 return M
