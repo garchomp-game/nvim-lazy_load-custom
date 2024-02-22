@@ -20,3 +20,18 @@ vim.g.markdown_recommended_style = 0
 utils.setup_very_lazy(function()
   vim.opt.clipboard = "unnamedplus"
 end)
+
+if vim.fn.has('wsl') == 1 then
+  vim.g.clipboard = {
+    name = "win32yank",
+    copy = {
+      ["+"] = "win32yank.exe -i --crlf",
+      ["*"] = "win32yank.exe -i --crlf"
+    },
+    paste = {
+      ["+"] = "win32yank.exe -o --lf",
+      ["*"] = "win32yank.exe -o --lf"
+    },
+    cache_enable = 0,
+  }
+end
