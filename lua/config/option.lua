@@ -6,7 +6,11 @@ vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.mouse = ""
 vim.opt.relativenumber = false
-vim.opt.number = false
+if utils.is_termux() then
+  vim.opt.number = false
+else
+  vim.opt.number = true
+end
 vim.opt.cursorcolumn = false
 vim.opt.showcmd = true
 vim.opt.ruler = true
