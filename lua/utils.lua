@@ -78,4 +78,6 @@ function M.tool_exists(name)
   return vim.fn.executable(name) > 0
 end
 
+-- TODO: termuxだったらからテーブルを返し、そうでなければ設定済みのプラグインのテーブルを返すラッパー関数を作る
+
 return M
