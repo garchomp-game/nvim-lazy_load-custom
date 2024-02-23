@@ -24,12 +24,14 @@ return {
         "eslint",
         "volar",
         "intelephense",
-        "phpactor",
-        "psalm",
+        -- "phpactor",
+        -- "psalm",
       }
 
       if not is_termux() then
         table.insert(language_server_list, "lua_ls")
+        table.insert(language_server_list, "phpactor")
+        table.insert(language_server_list, "psalm")
       end
 
       local lua_ls = require('plugins.lsp.lua_ls') -- lua_lsの設定をインポート
@@ -74,13 +76,15 @@ return {
         "intelephense",
         "jdtls",
         "java-language-server",
-        "phpactor",
-        "psalm",
+        -- "phpactor",
+        -- "psalm",
         "stylua",
         "markdownlint",
       }
       if not is_termux() then
         table.insert(myList, "lua-language-server")
+        table.insert(myList, "phpactor")
+        table.insert(myList, "psalm")
       end
 
       local function check()

@@ -53,6 +53,7 @@ return {
         "css",
         "scss",
         "pug",
+        "bash",
       },
       highlight = {
         enable = true,
