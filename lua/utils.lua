@@ -78,6 +78,11 @@ function M.tool_exists(name)
   return vim.fn.executable(name) > 0
 end
 
+function M.VertTerm(size)
+  size = size or 95 -- デフォルトサイズを95に設定
+  vim.cmd("ToggleTerm direction=vertical size=" .. size)
+end
+
 -- TODO: termuxだったらからテーブルを返し、そうでなければ設定済みのプラグインのテーブルを返すラッパー関数を作る
 
 return M
