@@ -4,11 +4,12 @@ end, {})
 
 -- 行末のスペースを消す
 vim.api.nvim_create_user_command("TrimTrailingSpace", function(opts)
-	local start_line = opts.line1
-	local end_line = opts.line2
-	local command = start_line .. "," .. end_line .. "s/\\s\\+$//ge"
-	vim.cmd(command)
-	vim.cmd("noh")
+    local start_line = opts.line1
+    local end_line = opts.line2
+    -- 半角スペース、全角スペース、タブ文字を含む末尾の空白文字をマッチするように正規表現を修正
+    local command = start_line .. "," .. end_line .. "s/[\\s\\u3000]+\\+$//ge"
+    vim.cmd(command)
+    vim.cmd("noh")
 end, { range = true })
 
 -- utilsモジュールをインポート
