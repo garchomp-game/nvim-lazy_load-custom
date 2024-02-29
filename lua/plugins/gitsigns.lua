@@ -1,8 +1,6 @@
 local utils = require('utils')
 
-if utils.is_termux() then
-  return {}
-else
+utils.setup_non_termux_config(function()
   return {
     'lewis6991/gitsigns.nvim',
     event = { 'BufRead', 'BufNewFile' }, -- BufReadとBufNewFileイベント時に読み込む
@@ -27,4 +25,4 @@ else
       current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
     }
   }
-end
+end)

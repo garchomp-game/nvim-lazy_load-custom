@@ -5,11 +5,7 @@ local is_initial_setup_done = false
 -- Termux環境かどうかをチェックする関数
 function M.is_termux()
   local prefix = vim.fn.getenv("PREFIX")
-  if type(prefix) == "string" and prefix:match('/com.termux') then
-    return true
-  else
-    return false
-  end
+  return type(prefix) == "string" and prefix:match('/com.termux')
 end
 
 -- is_initial_setup_doneの値を取得するgetter関数
@@ -83,6 +79,12 @@ function M.VertTerm(size)
   vim.cmd("ToggleTerm direction=vertical size=" .. size)
 end
 
--- TODO: termuxだったらからテーブルを返し、そうでなければ設定済みのプラグインのテーブルを返すラッパー関数を作る
+function M.setup_non_termux_config(callback)
+    if not M.is_termux() then
+        return callback()
+    else
+        return {}
+    end
+end
 
 return M
