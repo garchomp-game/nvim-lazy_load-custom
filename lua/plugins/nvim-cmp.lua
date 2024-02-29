@@ -8,6 +8,9 @@ return {
     'hrsh7th/cmp-cmdline',
     'L3MON4D3/LuaSnip',
     'saadparwaiz1/cmp_luasnip',
+    'hrsh7th/cmp-nvim-lua',
+    'f3fora/cmp-spell',
+    'hrsh7th/cmp-emoji',
   },
   config = function()
     -- Set up nvim-cmp.
@@ -58,7 +61,12 @@ return {
       }),
       sources = cmp.config.sources({
         { name = 'nvim_lsp' },
+        { name = 'path' },
         { name = 'luasnip' }, -- For luasnip users.
+        -- 追加の補完ソース
+        { name = 'nvim_lua' },  -- NeovimのLua API補完
+        { name = 'spell' },     -- スペルチェック補完
+        { name = 'emoji' },     -- 絵文字補完
       }, {
           { name = 'buffer' },
         })
