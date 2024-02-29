@@ -1,6 +1,6 @@
 local utils = require('utils')
 
-utils.setup_non_termux_config(function()
+return utils.setup_non_termux_config(function()
   return {
     'lewis6991/gitsigns.nvim',
     event = { 'BufRead', 'BufNewFile' }, -- BufReadとBufNewFileイベント時に読み込む

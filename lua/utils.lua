@@ -79,6 +79,8 @@ function M.VertTerm(size)
   vim.cmd("ToggleTerm direction=vertical size=" .. size)
 end
 
+---@param callback function 設定されたTermux環境の場合、callback関数が呼び出されます。
+---@return table
 function M.setup_non_termux_config(callback)
     if not M.is_termux() then
         return callback()
