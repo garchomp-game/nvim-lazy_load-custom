@@ -69,24 +69,37 @@ return {
         { name = 'emoji' },     -- 絵文字補完
       }, {
           { name = 'buffer' },
-        })
+        }
+      ),
+      -- より詳細な設定や条件に基づく補完の自動表示を制御するための設定
+      completion = {
+        -- 自動補完のトリガー条件をカスタマイズ
+        autocomplete = {
+          cmp.TriggerEvent.TextChanged,  -- テキストが変更されたとき
+        },
+      },
     })
 
     -- Set configuration for specific filetype.
     cmp.setup.filetype('gitcommit', {
-      sources = cmp.config.sources({
-        { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
-      }, {
+      sources = cmp.config.sources(
+        {
+          { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
+        },
+        {
           { name = 'buffer' },
-        })
+        }
+      )
     })
 
     -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
     cmp.setup.cmdline({ '/', '?' }, {
       mapping = cmp.mapping.preset.cmdline(),
-      sources = {
-        { name = 'buffer' }
-      }
+      sources = cmp.config.sources({
+        { name = 'path' }
+      }, {
+          { name = 'buffer' }
+        })
     })
 
     -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
@@ -100,3 +113,4 @@ return {
     })
   end,
 }
+
