@@ -18,14 +18,14 @@ return {
         "jdtls",
         "tsserver",
         "cssls",
-        "vimls",
+        "volar",
         "bashls",
         "emmet_ls",
         "eslint",
         "volar",
         "intelephense",
-        -- "phpactor",
-        -- "psalm",
+        "phpactor",
+        "psalm",
       }
 
       if not is_termux() then
@@ -75,11 +75,12 @@ return {
         "typescript-language-server",
         "intelephense",
         "jdtls",
-        "java-language-server",
-        -- "phpactor",
-        -- "psalm",
+        "phpactor",
+        "psalm",
         "stylua",
         "markdownlint",
+        "eslint_d",
+        "eslint-lsp",
       }
       if not is_termux() then
         table.insert(myList, "lua-language-server")
