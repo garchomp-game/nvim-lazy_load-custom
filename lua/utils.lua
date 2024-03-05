@@ -75,7 +75,7 @@ function M.tool_exists(name)
 end
 
 function M.VertTerm(size)
-  size = size or 100 -- デフォルトサイズを95に設定
+  size = size or 90 -- デフォルトサイズを90に設定
   vim.cmd("ToggleTerm direction=vertical size=" .. size)
 end
 
