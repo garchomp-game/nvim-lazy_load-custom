@@ -11,8 +11,8 @@ return {
       'folke/neodev.nvim' -- neodevを追加
     },
     config = function()
-      vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, {noremap = true, silent = true})
-      vim.keymap.set('n', ']d', vim.diagnostic.goto_next, {noremap = true, silent = true})
+      vim.keymap.set('n', '[d', vim.lsp.diagnostic.goto_prev, {noremap = true, silent = true})
+      vim.keymap.set('n', ']d', vim.lsp.diagnostic.goto_next, {noremap = true, silent = true})
       local is_termux = utils.is_termux
       local language_server_list = {
         "jdtls",
