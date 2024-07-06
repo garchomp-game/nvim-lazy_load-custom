@@ -1,3 +1,4 @@
+
 local utils = require('utils')
 local load_event = utils.get_is_initial_setup_done() and 'VimEnter' or 'VeryLazy'
 
@@ -13,6 +14,7 @@ return {
     config = function()
       vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, {noremap = true, silent = true})
       vim.keymap.set('n', ']d', vim.diagnostic.goto_next, {noremap = true, silent = true})
+
       local is_termux = utils.is_termux
       local language_server_list = {
         "jdtls",
@@ -22,7 +24,6 @@ return {
         "bashls",
         "emmet_ls",
         "eslint",
-        "volar",
         "intelephense",
         "phpactor",
         "psalm",
@@ -34,27 +35,37 @@ return {
         table.insert(language_server_list, "psalm")
       end
 
-      local lua_ls = require('plugins.lsp.lua_ls') -- lua_lsの設定をインポート
-      local jdtls = require('plugins.lsp.jdtls')
-      require("mason-lspconfig").setup{
+      local mason_lspconfig = require("mason-lspconfig")
+      mason_lspconfig.setup{
         ensure_installed = language_server_list,
       }
 
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
+      local mason_registry = require('mason-registry')
 
-      for _, val in pairs(language_server_list) do
-        local server_opts = {
+      -- 言語サーバーごとの設定を別ファイルから読み込む
+      local server_settings = {
+        lua_ls = require('plugins.lsp.lua_ls'),
+        jdtls = require('plugins.lsp.jdtls'),
+        tsserver = require('plugins.lsp.tsserver')
+      }
+
+      for _, server in ipairs(language_server_list) do
+        local opts = {
           capabilities = capabilities,
         }
 
-        -- lua_ls の特別な設定を別ファイルで行う
-        if not is_termux() and val == "lua_ls" then
-          server_opts = lua_ls.custom_server_opts(server_opts)
-        elseif val == "jdtls" then
-          jdtls.option()
+        if server == "lua_ls" and not is_termux() then
+          opts = server_settings.lua_ls.custom_server_opts(opts)
+        elseif server == "jdtls" then
+          opts = server_settings.jdtls.option()
+        elseif server == "tsserver" then
+          opts = server_settings.tsserver.custom_server_opts(opts, mason_registry)
+        elseif server == "volar" then
+          opts.filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' }
         end
-        -- 他のLSPサーバに関する設定
-        require("lspconfig")[val].setup(server_opts)
+
+        require("lspconfig")[server].setup(opts)
       end
     end,
   },
@@ -63,7 +74,7 @@ return {
     event = { load_event },
     config = function()
       local is_termux = utils.is_termux
-      local myList = {
+      local tool_list = {
         "bash-debug-adapter",
         "bash-language-server",
         "vim-language-server",
@@ -83,30 +94,29 @@ return {
         "eslint-lsp",
       }
       if not is_termux() then
-        table.insert(myList, "lua-language-server")
-        table.insert(myList, "phpactor")
-        table.insert(myList, "psalm")
+        table.insert(tool_list, "lua-language-server")
+        table.insert(tool_list, "phpactor")
+        table.insert(tool_list, "psalm")
       end
 
-      local function check()
+      local function check_installation()
         local mr = require("mason-registry")
-        -- パッケージリストを更新し、完了後に各パッケージのインストール状態をチェック
         mr.refresh(function ()
-          for _, tool in ipairs(myList) do
-            local p = mr.get_package(tool)
-            if not p:is_installed() then
-              p:install()
+          for _, tool in ipairs(tool_list) do
+            local pkg = mr.get_package(tool)
+            if not pkg:is_installed() then
+              pkg:install()
             end
           end
         end)
       end
 
       require("mason").setup()
-      -- 初期セットアップが完了したかどうかを確認
       if utils.get_is_initial_setup_done() then
         vim.cmd("Mason")
       end
-      check()
+      check_installation()
     end,
   },
 }
+

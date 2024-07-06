@@ -1,6 +1,5 @@
 {
     "diagnostics.disable": [
-        "trailing-space",
-        "deprecated"
+        "deprecated",
     ]
 }
