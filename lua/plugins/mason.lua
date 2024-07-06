@@ -58,10 +58,11 @@ return {
         if server == "lua_ls" and not is_termux() then
           opts = server_settings.lua_ls.custom_server_opts(opts)
         elseif server == "jdtls" then
-          opts = server_settings.jdtls.option()
+          server_settings.jdtls.option()
         elseif server == "tsserver" then
           opts = server_settings.tsserver.custom_server_opts(opts, mason_registry)
         elseif server == "volar" then
+          -- volarの設定を追加
           opts.filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' }
         end
 
