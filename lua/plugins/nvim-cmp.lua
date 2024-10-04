@@ -1,118 +1,118 @@
+-- nvim-cmpプラグインの設定
 return {
   'hrsh7th/nvim-cmp',
-  event = "VeryLazy",
+  event = "VeryLazy",  -- プラグインを遅延読み込みするイベントを指定
   dependencies = {
-    'williamboman/mason-lspconfig.nvim',
-    'williamboman/mason.nvim',
-    'hrsh7th/cmp-nvim-lsp',
-    'hrsh7th/cmp-buffer',
-    'hrsh7th/cmp-path',
-    'hrsh7th/cmp-cmdline',
-    'L3MON4D3/LuaSnip',
-    'saadparwaiz1/cmp_luasnip',
-    'hrsh7th/cmp-nvim-lua',
-    'f3fora/cmp-spell',
-    'hrsh7th/cmp-emoji',
+    'williamboman/mason-lspconfig.nvim',  -- LSPの設定と統合するためのプラグイン
+    'williamboman/mason.nvim',            -- LSPとDapのためのインストーラ
+    'hrsh7th/cmp-nvim-lsp',               -- LSPの補完ソースを追加
+    'hrsh7th/cmp-buffer',                 -- バッファ内の単語を補完
+    'hrsh7th/cmp-path',                   -- ファイルパスの補完
+    'hrsh7th/cmp-cmdline',                -- コマンドラインの補完
+    'L3MON4D3/LuaSnip',                   -- スニペットエンジン
+    'saadparwaiz1/cmp_luasnip',           -- LuaSnipとの統合
+    'hrsh7th/cmp-nvim-lua',               -- NeovimのLua APIの補完
+    'f3fora/cmp-spell',                   -- スペルチェックの補完
+    'hrsh7th/cmp-emoji',                  -- 絵文字の補完
   },
   config = function()
-    -- Set up nvim-cmp.
+    -- カーソルの前に単語があるか確認する関数
     local has_words_before = function()
       local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-      return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+      return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]
+                :sub(col, col):match("%s") == nil
     end
+
+    -- nvim-cmpとLuaSnipを読み込み
     local cmp = require'cmp'
     local luasnip = require('luasnip')
 
+    -- nvim-cmpのセットアップ
     cmp.setup({
       snippet = {
-        -- REQUIRED - you must specify a snippet engine
+        -- スニペットエンジンの設定
         expand = function(args)
-          luasnip.lsp_expand(args.body) -- For `luasnip` users.
+          luasnip.lsp_expand(args.body) -- LuaSnipを使用してスニペットを展開
         end,
       },
       window = {
-        completion = cmp.config.window.bordered(),
-        documentation = cmp.config.window.bordered(),
+        completion = cmp.config.window.bordered(),  -- 補完ウィンドウに枠線を追加
+        documentation = cmp.config.window.bordered(), -- ドキュメントウィンドウに枠線を追加
       },
       mapping = cmp.mapping.preset.insert({
         ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
-            cmp.select_next_item()
+            cmp.select_next_item()  -- 補完メニューが表示されている場合、次の項目を選択
           elseif luasnip.expand_or_jumpable() then
-            luasnip.expand_or_jump()
+            luasnip.expand_or_jump()  -- スニペットを展開するか、次のジャンプポイントに移動
           elseif has_words_before() then
-            cmp.complete()
+            cmp.complete()  -- 補完を開始
           else
-            fallback()
+            fallback()  -- 他の操作を実行
           end
         end, { "i", "s" }),
         ["<S-Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
-            cmp.select_prev_item()
+            cmp.select_prev_item()  -- 補完メニューが表示されている場合、前の項目を選択
           elseif luasnip.jumpable(-1) then
-            luasnip.jump(-1)
+            luasnip.jump(-1)  -- スニペット内を逆方向にジャンプ
           else
-            fallback()
+            fallback()  -- 他の操作を実行
           end
         end, { "i", "s" }),
-        ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<C-Space>'] = cmp.mapping.complete(),
-        ['<C-e>'] = cmp.mapping.abort(),
-        ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        ['<C-b>'] = cmp.mapping.scroll_docs(-4),  -- ドキュメントを上にスクロール
+        ['<C-f>'] = cmp.mapping.scroll_docs(4),   -- ドキュメントを下にスクロール
+        ['<C-Space>'] = cmp.mapping.complete(),   -- 手動で補完を開始
+        ['<C-e>'] = cmp.mapping.abort(),          -- 補完をキャンセル
+        ['<CR>'] = cmp.mapping.confirm({ select = true }), -- 現在選択されている項目を確定
       }),
       sources = cmp.config.sources({
-        { name = 'nvim_lsp' },
-        { name = 'path' },
-        { name = 'luasnip' }, -- For luasnip users.
-        -- 追加の補完ソース
+        { name = 'nvim_lsp' },  -- LSPからの補完ソース
+        { name = 'path' },      -- ファイルパスの補完
+        { name = 'luasnip' },   -- LuaSnipからの補完
         { name = 'nvim_lua' },  -- NeovimのLua API補完
         { name = 'spell' },     -- スペルチェック補完
         { name = 'emoji' },     -- 絵文字補完
       }, {
-          { name = 'buffer' },
+          { name = 'buffer' },  -- バッファ内の単語を補完
         }
       ),
-      -- より詳細な設定や条件に基づく補完の自動表示を制御するための設定
       completion = {
         -- 自動補完のトリガー条件をカスタマイズ
         autocomplete = {
-          cmp.TriggerEvent.TextChanged,  -- テキストが変更されたとき
+          cmp.TriggerEvent.TextChanged,  -- テキストが変更されたときに自動で補完を開始
         },
       },
     })
 
-    -- Set configuration for specific filetype.
+    -- 特定のファイルタイプの設定（Gitのコミットメッセージ用）
     cmp.setup.filetype('gitcommit', {
       sources = cmp.config.sources(
         {
-          { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
+          { name = 'cmp_git' }, -- Git関連の補完ソース
         },
         {
-          { name = 'buffer' },
+          { name = 'buffer' },  -- バッファ内の単語を補完
         }
       )
     })
 
-    -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+    -- `/`と`?`のコマンドライン用の設定
     cmp.setup.cmdline({ '/', '?' }, {
       mapping = cmp.mapping.preset.cmdline(),
       sources = cmp.config.sources({
-        { name = 'path' }
-      }, {
-          { name = 'buffer' }
-        })
+        { name = 'buffer' }  -- バッファ内の単語を補完
+      })
     })
 
-    -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+    -- `:`のコマンドライン用の設定
     cmp.setup.cmdline(':', {
       mapping = cmp.mapping.preset.cmdline(),
       sources = cmp.config.sources({
-        { name = 'path' }
+        { name = 'path' },   -- ファイルパスの補完
       }, {
-          { name = 'cmdline' }
+          { name = 'cmdline' }  -- コマンドラインの補完
         })
     })
   end,
 }
-
