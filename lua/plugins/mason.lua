@@ -17,8 +17,8 @@ return {
     },
     config = function()
       -- 診断メッセージのナビゲーションキーを設定
-      vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { noremap = true, silent = true })
-      vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { noremap = true, silent = true })
+      vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { noremap = true, silent = true }) -- 前の診断メッセージに移動
+      vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { noremap = true, silent = true }) -- 次の診断メッセージに移動
 
       -- Termux環境かどうかを判定する関数
       local is_termux = utils.is_termux
@@ -33,6 +33,7 @@ return {
         "emmet_ls",
         "eslint",
         "intelephense",
+        "kotlin_language_server",  -- Kotlin用のLSPを追加
       }
 
       -- Termuxでない場合、追加の言語サーバーをリストに含める
@@ -60,30 +61,45 @@ return {
         tsserver = require('plugins.lsp.tsserver')
       }
 
-      -- 各言語サーバーを設定
-      for _, server in ipairs(language_server_list) do
-        -- 基本オプションを設定
-        local opts = {
-          capabilities = capabilities,
-        }
+      -- mason-lspconfig の setup_handlers を使用してサーバーを設定
+      require("mason-lspconfig").setup_handlers {
+        -- デフォルトのハンドラー
+        function (server_name)
+          local opts = {
+            capabilities = capabilities,
+          }
 
-        -- 各言語サーバーに応じたカスタム設定を適用
-        if server == "lua_ls" and not is_termux() then
-          opts = server_settings.lua_ls.custom_server_opts(opts)
-        elseif server == "jdtls" then
-          server_settings.jdtls.option()
-        elseif server == "tsserver" then
-          opts = server_settings.tsserver.custom_server_opts(opts, mason_registry)
-        elseif server == "volar" then
-          -- Volar用のファイルタイプを設定
-          opts.filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' }
-        end
+          -- カスタム設定が存在する場合は適用
+          if server_settings[server_name] then
+            if server_name == "lua_ls" and not is_termux() then
+              opts = server_settings.lua_ls.custom_server_opts(opts)
+            elseif server_name == "jdtls" then
+              opts = server_settings.jdtls.option(opts)
+            elseif server_name == "tsserver" then
+              opts = server_settings.tsserver.custom_server_opts(opts, mason_registry)
+            elseif server_name == "volar" then
+              opts.filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' }
+            end
+          end
 
-        -- LSPサーバーをセットアップ
-        require("lspconfig")[server].setup(opts)
-      end
+          -- opts がテーブルであることを確認
+          if type(opts) ~= "table" then
+            vim.notify("設定オプションがテーブルではありません: " .. server_name, vim.log.levels.ERROR)
+            opts = {}
+          end
+
+          -- LSPサーバーをセットアップ
+          local success, err = pcall(function()
+            require("lspconfig")[server_name].setup(opts)
+          end)
+          if not success then
+            vim.notify("LSPサーバーのセットアップに失敗しました: " .. server_name .. " エラー: " .. err, vim.log.levels.ERROR)
+          end
+        end,
+      }
     end,
   },
+  -- 残りのプラグイン設定は変更なし
   {
     -- masonプラグインの設定
     'williamboman/mason.nvim',
@@ -110,6 +126,7 @@ return {
         "stylua",
         "markdownlint",
         "eslint_d",
+        "kotlin-language-server",  -- Kotlin用のツールを追加
       }
 
       -- Termuxでない場合、追加のツールをリストに含める
@@ -123,7 +140,7 @@ return {
         mr.refresh(function ()
           for _, tool in ipairs(tool_list) do
             local pkg = mr.get_package(tool)
-            if not pkg:is_installed() then
+            if pkg and not pkg:is_installed() then
               pkg:install()
             end
           end
