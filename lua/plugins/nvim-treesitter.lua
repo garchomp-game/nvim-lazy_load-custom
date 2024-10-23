@@ -72,6 +72,9 @@ return {
           end
         end,
       },
+      context_commentstring = {
+        enable = true, -- コメントのコンテキストに基づいてハイライト
+      },
       indent = {
         enable = true, -- インデントを自動で調整する機能を有効にする
       },

@@ -96,4 +96,25 @@ function M.setup_non_termux_config(callback)
   end
 end
 
+function M.unique_merge(list1, list2)
+  local seen = {}
+  local result = {}
+
+  for _, v in ipairs(list1) do
+    if not seen[v] then
+      table.insert(result, v)
+      seen[v] = true
+    end
+  end
+
+  for _, v in ipairs(list2) do
+    if not seen[v] then
+      table.insert(result, v)
+      seen[v] = true
+    end
+  end
+
+  return result
+end
+
 return M
