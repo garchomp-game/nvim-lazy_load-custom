@@ -89,7 +89,7 @@ return {
         "phpactor",
         "psalm",
         "stylua",
-        "markdownlint",
+        -- "markdownlint",
         "eslint_d",
         "eslint-lsp",
       }

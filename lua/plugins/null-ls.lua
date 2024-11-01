@@ -13,20 +13,20 @@ return {
     local sources = {}
 
     -- prettierがインストールされている場合に追加
-    -- if utils.tool_exists("prettier") then
-    --   table.insert(sources, null_ls.builtins.formatting.prettier)
-    -- end
+    if utils.tool_exists("prettier") then
+      table.insert(sources, null_ls.builtins.formatting.prettier)
+    end
 
     -- eslintがインストールされている場合に追加
-    -- if utils.tool_exists("eslint") then
-    --   table.insert(sources, null_ls.builtins.diagnostics.eslint)  -- 診断用eslint
-    --   table.insert(sources, null_ls.builtins.formatting.eslint_d) -- フォーマッターeslint_d
-    -- end
+    if utils.tool_exists("eslint") then
+      table.insert(sources, null_ls.builtins.diagnostics.eslint)  -- 診断用eslint
+      table.insert(sources, null_ls.builtins.formatting.eslint_d) -- フォーマッターeslint_d
+    end
 
     -- markdownlintがインストールされている場合に追加
-    if utils.tool_exists("markdownlint") then
-      table.insert(sources, null_ls.builtins.diagnostics.markdownlint)
-    end
+    -- if utils.tool_exists("markdownlint") then
+    --   table.insert(sources, null_ls.builtins.diagnostics.markdownlint)
+    -- end
 
     -- null-lsにソースを登録
     null_ls.setup({
