@@ -11,13 +11,13 @@ return {
       'folke/neodev.nvim' -- neodevを追加
     },
     config = function()
-      vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, {noremap = true, silent = true})
-      vim.keymap.set('n', ']d', vim.diagnostic.goto_next, {noremap = true, silent = true})
+      vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { noremap = true, silent = true })
+      vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { noremap = true, silent = true })
 
       local is_termux = utils.is_termux
       local language_server_list = {
         "jdtls",
-        "tsserver",
+        "ts_ls",
         "cssls",
         "volar",
         "bashls",
@@ -35,7 +35,7 @@ return {
       end
 
       local mason_lspconfig = require("mason-lspconfig")
-      mason_lspconfig.setup{
+      mason_lspconfig.setup {
         ensure_installed = language_server_list,
       }
 
@@ -46,7 +46,7 @@ return {
       local server_settings = {
         lua_ls = require('plugins.lsp.lua_ls'),
         jdtls = require('plugins.lsp.jdtls'),
-        tsserver = require('plugins.lsp.tsserver')
+        ts_ls = require('plugins.lsp.ts_ls'),
       }
 
       for _, server in ipairs(language_server_list) do
@@ -57,9 +57,9 @@ return {
         if server == "lua_ls" and not is_termux() then
           opts = server_settings.lua_ls.custom_server_opts(opts)
         elseif server == "jdtls" then
-          server_settings.jdtls.option()
-        elseif server == "tsserver" then
-          opts = server_settings.tsserver.custom_server_opts(opts, mason_registry)
+          opts = server_settings.jdtls.custom_server_opts(opts)
+        elseif server == "ts_ls" then
+          opts = server_settings.ts_ls.custom_server_opts(opts, mason_registry)
         elseif server == "volar" then
           -- volarの設定を追加
           opts.filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' }
@@ -101,7 +101,7 @@ return {
 
       local function check_installation()
         local mr = require("mason-registry")
-        mr.refresh(function ()
+        mr.refresh(function()
           for _, tool in ipairs(tool_list) do
             local pkg = mr.get_package(tool)
             if not pkg:is_installed() then
@@ -119,4 +119,3 @@ return {
     end,
   },
 }
-
