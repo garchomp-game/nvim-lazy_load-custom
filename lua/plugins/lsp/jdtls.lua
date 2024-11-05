@@ -1,47 +1,53 @@
+-- plugins/lsp/jdtls.lua
+
 local M = {}
 
 function M.custom_server_opts(opts)
-  local data = vim.fn.stdpath('data')
-  local lombok = data .. "/mason/packages/jdtls/lombok.jar"
-
-  if vim.fn.filereadable(lombok) then
-    vim.env.JDTLS_JVM_ARGS = "-javaagent:" .. lombok
-  end
-
-  local home = vim.env.HOME
-  local workspace_dir = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
-
-  -- フォーマット設定ファイルへのパス
-  local eclipse_format = home .. '/.config/nvim/eclipse-java-google-style.xml' -- 必要に応じてパスを修正
-
-  -- cmdの設定
-  opts.cmd = {
-    data .. '/mason/bin/jdtls', -- Masonでインストールされたjdtlsの実行パス
-    '-data',
-    home .. '/workspace/' .. workspace_dir,
-  }
-
-  -- lspconfig.utilを使用してroot_dirを設定
-  local root_pattern = require('lspconfig.util').root_pattern
-  opts.root_dir = root_pattern('.git', 'mvnw', 'gradlew', 'pom.xml', 'build.gradle')(vim.fn.getcwd())
-
-  -- フォーマット設定の追加
-  opts.settings = {
-    java = {
-      format = {
-        enabled = true,
-        settings = {
-          url = eclipse_format, -- フォーマット設定ファイルを指定
+  local home = os.getenv('HOME')
+  local workspace_path = home .. "/.local/share/nvim/jdtls-workspace/"
+  local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
+  
+  opts = {
+    -- メイン設定
+    cmd = {
+      'jdtls',
+      '--jvm-arg=-javaagent:' .. home .. '/.local/share/nvim/mason/packages/jdtls/lombok.jar',
+      '-data', workspace_path .. project_name
+    },
+    
+    -- 言語サーバーの設定
+    settings = {
+      java = {
+        configuration = {
+          updateBuildConfiguration = "automatic",
+        },
+        maven = {
+          downloadSources = true,
+        },
+        implementationsCodeLens = {
+          enabled = true,
+        },
+        referencesCodeLens = {
+          enabled = true,
+        },
+        format = {
+          enabled = true,
         },
       },
     },
-  }
+    
+    -- 初期化オプション
+    init_options = {
+      bundles = {},
+      extendedClientCapabilities = {
+        progressReportProvider = true
+      }
+    },
 
-  -- 必要に応じてinit_optionsやその他の設定を追加
-  opts.init_options = {
-    bundles = {},
+    -- シングルファイルのサポート
+    single_file_support = true,
   }
-
+  
   return opts
 end
 
