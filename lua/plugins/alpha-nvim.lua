@@ -1,6 +1,6 @@
 return {
   'goolord/alpha-nvim',
-  event = "VeryLazy",
+  event = 'VimEnter',
   config = function ()
     require'alpha'.setup(require'alpha.themes.dashboard'.config)
   end
