@@ -1,5 +1,6 @@
 {
     "diagnostics.disable": [
         "deprecated",
+        "assign-type-mismatch",
     ]
 }
