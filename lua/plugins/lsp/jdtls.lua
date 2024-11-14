@@ -3,10 +3,11 @@
 local M = {}
 
 function M.custom_server_opts(opts)
-  local home = os.getenv('HOME')
-  local workspace_path = home .. "/.local/share/nvim/jdtls-workspace/"
+  local home = vim.loop.os_homedir()
+  local data_path = vim.fn.stdpath("data")
+  local workspace_path = data_path .. "/jdtls-workspace/"
   local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
-  local lombok_path = home .. "/.local/share/nvim/mason/packages/jdtls/lombok.jar"
+  local lombok_path = data_path .. "/mason/packages/jdtls/lombok.jar"
   
   opts = {
     -- メイン設定
