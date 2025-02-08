@@ -25,6 +25,11 @@ vim.g.neovide_animate_window_resize = true
 vim.g.neovide_background_color = "#282c34" .. string.format("%x", math.floor(255 * 0.8))
 vim.g.neovide_refresh_rate = 144
 
+-- ここにフルスクリーン起動設定を追加
+vim.g.neovide_fullscreen = true
+
+-- その後に他の設定が続く...
+
 utils.setup_very_lazy(function()
   vim.opt.clipboard = "unnamedplus"
 end)

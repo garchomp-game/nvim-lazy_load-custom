@@ -20,14 +20,14 @@ else
       vim.keymap.set("i", "<c-g>x", function()
         return vim.fn["codeium#Clear"]()
       end, { expr = true, silent = true })
-      vim.g.codeium_filetypes = {
-        markdown = false,
-        gitcommit = false,
-        gitrebase = false,
-        hgcommit = false,
-        svn = false,
-        cvs = false,
-      }
+      -- vim.g.codeium_filetypes = {
+        -- markdown = false,
+        -- gitcommit = false,
+        -- gitrebase = false,
+        -- hgcommit = false,
+        -- svn = false,
+        -- cvs = false,
+      -- }
     end,
   }
 end

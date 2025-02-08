@@ -27,13 +27,11 @@ return {
         "eslint",
         "intelephense",
         "phpactor",
-        "psalm",
       }
 
       if not is_termux() then
         table.insert(language_server_list, "lua_ls")
         table.insert(language_server_list, "phpactor")
-        table.insert(language_server_list, "psalm")
       end
 
       local mason_lspconfig = require("mason-lspconfig")
@@ -91,7 +89,6 @@ return {
         "intelephense",
         "jdtls",
         "phpactor",
-        "psalm",
         "stylua",
         -- "markdownlint",
         "eslint_d",
@@ -100,7 +97,6 @@ return {
       if not is_termux() then
         table.insert(tool_list, "lua-language-server")
         table.insert(tool_list, "phpactor")
-        table.insert(tool_list, "psalm")
       end
 
       local function check_installation()
