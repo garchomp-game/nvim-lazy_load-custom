@@ -1,6 +1,7 @@
 return {
   'nvim-neo-tree/neo-tree.nvim',
-  keys = {'<C-n>'},
+  event = "VeryLazy",
+  -- keys = {'<C-n>'},
   dependencies = {
     'nvim-tree/nvim-web-devicons',
     "nvim-lua/plenary.nvim",
