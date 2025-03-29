@@ -1,34 +1,27 @@
 return {
-  'nvimtools/none-ls.nvim',  -- 修正: プラグイン名を正しく
+  'nvimtools/none-ls.nvim',  -- このプラグイン名は正しい
   event = "VeryLazy",
   dependencies = {
-    'williamboman/mason.nvim',  -- mason.nvim のみで十分
+    'williamboman/mason.nvim',
+    'nvim-lua/plenary.nvim',  -- 必須の依存関係を追加しておくとよい
   },
   config = function()
     local utils = require('utils')
-    -- null-lsの設定
-    local null_ls = require("null-ls")
+    -- null-lsの設定（これは正しい - 変更しない）
+    local null_ls = require("null-ls")  -- ここを none-ls から null-ls に戻す
 
-    -- 利用可能なフォーマッターとリンターの設定
+    -- 以下は同じままで大丈夫
     local sources = {}
 
-    -- prettierがインストールされている場合に追加
     if utils.tool_exists("prettier") then
       table.insert(sources, null_ls.builtins.formatting.prettier)
     end
 
-    -- eslintがインストールされている場合に追加
     if utils.tool_exists("eslint") then
-      table.insert(sources, null_ls.builtins.diagnostics.eslint)  -- 診断用eslint
-      table.insert(sources, null_ls.builtins.formatting.eslint_d) -- フォーマッターeslint_d
+      table.insert(sources, null_ls.builtins.diagnostics.eslint)
+      table.insert(sources, null_ls.builtins.formatting.eslint_d)
     end
 
-    -- markdownlintがインストールされている場合に追加
-    -- if utils.tool_exists("markdownlint") then
-    --   table.insert(sources, null_ls.builtins.diagnostics.markdownlint)
-    -- end
-
-    -- null-lsにソースを登録
     null_ls.setup({
       sources = sources,
     })
