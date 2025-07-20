@@ -4,6 +4,7 @@ return {
   dependencies = {
     'williamboman/mason.nvim',
     'nvim-lua/plenary.nvim',  -- 必須の依存関係を追加しておくとよい
+    "nvimtools/none-ls-extras.nvim",   -- ★追加
   },
   config = function()
     local utils = require('utils')
@@ -17,10 +18,11 @@ return {
       table.insert(sources, null_ls.builtins.formatting.prettier)
     end
 
-    if utils.tool_exists("eslint") then
-      table.insert(sources, null_ls.builtins.diagnostics.eslint)
-      table.insert(sources, null_ls.builtins.formatting.eslint_d)
+    if utils.tool_exists("biome") then
+      table.insert(sources, null_ls.builtins.formatting.biome)
+      table.insert(sources, null_ls.diagnostics.biome)
     end
+
 
     null_ls.setup({
       sources = sources,
