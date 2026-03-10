@@ -1,5 +1,10 @@
+-- neodev.nvimは非推奨 → lazydev.nvimに置換
 return {
-  'folke/neodev.nvim',
-  event = "VeryLazy",
-  config = true
+  'folke/lazydev.nvim',
+  ft = 'lua',
+  opts = {
+    library = {
+      { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+    },
+  },
 }

@@ -44,20 +44,34 @@ vim.keymap.set('n', '<leader>cp', function()
   vim.diagnostic.goto_prev()
 end, opts)
 
--- 通常モードでの '=' キーのマッピング: バッファ全体をフォーマット
-vim.keymap.set('n', '=', function()
-  vim.lsp.buf.format()
-end, opts)
+-- 通常モード・ビジュアルモードでの '=' キーのフォーマットは
+-- conform.nvim の keys 設定で管理しているためここからは削除
 
--- ビジュアルモードでの '=' キーのマッピング: 選択範囲のみをフォーマットし、カーソルを選択範囲の開始位置に戻す
-vim.keymap.set('v', '=', function()
-  -- フォーマットを実行（選択範囲が自動的に適用される）
-  vim.lsp.buf.format({ async = true })
-
-  -- ビジュアルモードを終了
-  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<esc>", true, false, true), "n", true)
-end, opts)
-
+-- LSPアタッチ時のキーマップ設定
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('UserLspConfig', { clear = true }),
+  callback = function(ev)
+    local opts_with_buf = function(desc)
+      return { buffer = ev.buf, noremap = true, silent = true, desc = desc }
+    end
+    -- 定義ジャンプ
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts_with_buf('定義へジャンプ'))
+    -- 宣言ジャンプ
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts_with_buf('宣言へジャンプ'))
+    -- 型定義ジャンプ
+    vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition, opts_with_buf('型定義へジャンプ'))
+    -- 実装へジャンプ
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts_with_buf('実装へジャンプ'))
+    -- 参照一覧
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts_with_buf('参照一覧'))
+    -- リネーム
+    vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts_with_buf('リネーム'))
+    -- コードアクション
+    vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts_with_buf('コードアクション'))
+    -- ホバー情報
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts_with_buf('ホバー情報'))
+  end,
+})
 
 vim.api.nvim_set_keymap("n", "<F5>", ":lua require'dap'.continue()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<F10>", ":lua require'dap'.step_over()<CR>", { noremap = true, silent = true })
@@ -66,3 +80,4 @@ vim.api.nvim_set_keymap("n", "<F12>", ":lua require'dap'.step_out()<CR>", { nore
 vim.api.nvim_set_keymap("n", "<Leader>b", ":lua require'dap'.toggle_breakpoint()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<Leader>dr", ":lua require'dap'.repl.open()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<Leader>dl", ":lua require'dap'.run_last()<CR>", { noremap = true, silent = true })
+

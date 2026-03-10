@@ -1,31 +1,40 @@
+-- conform.nvim: フォーマッタ専用プラグイン
+-- none-ls（旧null-ls）からフォーマッタ機能を分離
 return {
-  'nvimtools/none-ls.nvim',  -- このプラグイン名は正しい
-  event = "VeryLazy",
-  dependencies = {
-    'williamboman/mason.nvim',
-    'nvim-lua/plenary.nvim',  -- 必須の依存関係を追加しておくとよい
-    "nvimtools/none-ls-extras.nvim",   -- ★追加
+  'stevearc/conform.nvim',
+  event = { "BufWritePre" },
+  cmd = { "ConformInfo" },
+  keys = {
+    {
+      '=',
+      function()
+        require("conform").format({ async = true, lsp_fallback = true })
+      end,
+      mode = { 'n', 'v' },
+      desc = "フォーマット",
+    },
   },
-  config = function()
-    local utils = require('utils')
-    -- null-lsの設定（これは正しい - 変更しない）
-    local null_ls = require("null-ls")  -- ここを none-ls から null-ls に戻す
-
-    -- 以下は同じままで大丈夫
-    local sources = {}
-
-    if utils.tool_exists("prettier") then
-      table.insert(sources, null_ls.builtins.formatting.prettier)
-    end
-
-    if utils.tool_exists("biome") then
-      table.insert(sources, null_ls.builtins.formatting.biome)
-      table.insert(sources, null_ls.diagnostics.biome)
-    end
-
-
-    null_ls.setup({
-      sources = sources,
-    })
-  end,
+  opts = {
+    formatters_by_ft = {
+      lua = { "stylua" },
+      javascript = { "biome", "prettier", stop_after_first = true },
+      typescript = { "biome", "prettier", stop_after_first = true },
+      javascriptreact = { "biome", "prettier", stop_after_first = true },
+      typescriptreact = { "biome", "prettier", stop_after_first = true },
+      vue = { "prettier" },
+      css = { "prettier" },
+      scss = { "prettier" },
+      html = { "prettier" },
+      json = { "biome", "prettier", stop_after_first = true },
+      jsonc = { "biome", "prettier", stop_after_first = true },
+      yaml = { "prettier" },
+      markdown = { "prettier" },
+      php = { "prettier" },
+      java = {},  -- jdtlsのLSPフォーマットを使用
+    },
+    -- デフォルトのフォーマットオプション
+    default_format_opts = {
+      lsp_format = "fallback",  -- フォーマッタがない場合はLSPフォールバック
+    },
+  },
 }

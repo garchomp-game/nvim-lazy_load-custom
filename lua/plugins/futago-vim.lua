@@ -1,23 +1,2 @@
-local M = {
-  "yukimemi/futago.vim",
-  lazy = false,
-  dependencies = {
-    "vim-denops/denops.vim",
-  },
-  config = function()
-    -- Denopsの設定をLuaで設定
-    vim.g['denops#server#deno_args'] = {'-q', '--no-lock', '--unstable-kv', '-A'}
-
-    -- FutagoStartコマンドを追加
-    vim.api.nvim_create_user_command('FutagoStart', function()
-      vim.cmd('call futago#start_chat()')
-    end, {})
-  end,
-}
-
-local utils = require('utils')
-if utils.is_termux then
-  return {}
-else
-  return M
-end
+-- futago.vim は不要になったため無効化
+return {}
