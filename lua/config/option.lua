@@ -92,3 +92,34 @@ if vim.fn.has('wsl') == 1 then
     cache_enable = 0,
   }
 end
+
+-- ===============================
+-- カーソルライン・カラム表示
+-- ===============================
+vim.opt.cursorline = true
+vim.opt.cursorcolumn = true
+
+-- ===============================
+-- 診断表示設定
+-- ===============================
+vim.diagnostic.config({
+  virtual_text = {
+    prefix = '●',
+    spacing = 2,
+  },
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = ' ',
+      [vim.diagnostic.severity.WARN]  = ' ',
+      [vim.diagnostic.severity.HINT]  = '󰌵 ',
+      [vim.diagnostic.severity.INFO]  = ' ',
+    },
+  },
+  underline = true,
+  update_in_insert = false,  -- インサートモード中は更新しない
+  severity_sort = true,       -- 重要度順にソート
+  float = {
+    border = 'rounded',
+    source = true,
+  },
+})

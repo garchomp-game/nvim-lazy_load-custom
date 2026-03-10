@@ -1,7 +1,2 @@
-return {
-  -- 'rcarriga/nvim-notify',
-  -- lazy = false,
-  -- config = function ()
-  --   vim.notify = require("notify")
-  -- end
-}
+-- nvim-notify は不要（snacks.notifier で代替）
+return {}

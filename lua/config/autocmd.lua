@@ -1,7 +1,2 @@
--- markdownだったらnonumberにするようにする。
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "markdown" },
-  callback = function()
-    vim.opt_local.number = false
-  end,
-})
+-- autocmd: ファイルタイプ別設定は ftplugin/ に移動済み
+-- このファイルはグローバルな autocmd 用に使用
