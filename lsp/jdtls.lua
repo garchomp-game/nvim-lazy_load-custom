@@ -44,7 +44,27 @@ return {
     },
   },
   init_options = {
-    bundles = {},
+    bundles = (function()
+      local mason_path = vim.fn.stdpath('data') .. '/mason/packages'
+      local bundles = {}
+      -- java-debug-adapter
+      local debug_jar = vim.fn.glob(
+        mason_path .. '/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar',
+        true
+      )
+      if debug_jar ~= '' then
+        vim.list_extend(bundles, { debug_jar })
+      end
+      -- java-test
+      local test_jars = vim.fn.glob(
+        mason_path .. '/java-test/extension/server/*.jar',
+        true, true
+      )
+      if test_jars then
+        vim.list_extend(bundles, test_jars)
+      end
+      return bundles
+    end)(),
     extendedClientCapabilities = {
       progressReportProvider = true,
       classFileContentsSupport = true,
