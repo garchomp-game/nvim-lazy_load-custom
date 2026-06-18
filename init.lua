@@ -27,16 +27,3 @@ if utils.get_is_initial_setup_done() then
   vim.cmd("close")
 end
 require 'config'
-
--- Neovim 0.11+ 組み込みの vim.lsp.config を使ったLSP有効化
--- 各サーバーの設定は ~/.config/nvim/lsp/ に配置
-vim.lsp.enable({
-  'lua_ls',
-  'ts_ls',
-  'cssls',
-  'bashls',
-  'emmet_ls',
-  'intelephense',
-  'jsonls',
-  'jdtls',
-})

@@ -1,24 +1,6 @@
 -- autocmd: ファイルタイプ別設定は ftplugin/ に移動済み
 -- このファイルはグローバルな autocmd 用に使用
 
-vim.api.nvim_create_autocmd("LspAttach", {
-  group = vim.api.nvim_create_augroup("UserLspConfig", { clear = true }),
-  callback = function(ev)
-    local function opts(desc)
-      return { buffer = ev.buf, noremap = true, silent = true, desc = desc }
-    end
-
-    vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts("定義へジャンプ"))
-    vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts("宣言へジャンプ"))
-    vim.keymap.set("n", "gy", vim.lsp.buf.type_definition, opts("型定義へジャンプ"))
-    vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts("実装へジャンプ"))
-    vim.keymap.set("n", "gr", vim.lsp.buf.references, opts("参照一覧"))
-    vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts("リネーム"))
-    vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts("コードアクション"))
-    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts("ホバー情報"))
-  end,
-})
-
 if vim.treesitter and vim.treesitter.start and not vim.g.user_treesitter_start_wrapped then
   vim.g.user_treesitter_start_wrapped = true
   local treesitter_start = vim.treesitter.start

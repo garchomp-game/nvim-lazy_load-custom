@@ -7,6 +7,7 @@
 - マウスは無効
 - ActivityBar は使わない
 - LSP は `nvim-lspconfig` ではなく Neovim 標準の `vim.lsp.config` / `vim.lsp.enable`
+- `lsp/*.lua` のファイル名を Mason の自動インストール対象として使う
 - Treesitter は `nvim-treesitter` を使わず、Neovim 標準の `vim.treesitter.start()`
 - formatter は `conform.nvim`
 - lint は `nvim-lint`
