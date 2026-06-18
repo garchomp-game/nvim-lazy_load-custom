@@ -1,14 +1,21 @@
 -- conform.nvim: フォーマッタ専用プラグイン
--- none-ls（旧null-ls）からフォーマッタ機能を分離
 return {
   'stevearc/conform.nvim',
   event = { "BufWritePre" },
   cmd = { "ConformInfo" },
   keys = {
     {
-      '=',
+      '<leader>f',
       function()
-        require("conform").format({ async = true, lsp_fallback = true })
+        require("conform").format({ async = true, lsp_format = "fallback" })
+      end,
+      mode = { 'n', 'v' },
+      desc = "フォーマット",
+    },
+    {
+      '<leader>cf',
+      function()
+        require("conform").format({ async = true, lsp_format = "fallback" })
       end,
       mode = { 'n', 'v' },
       desc = "フォーマット",

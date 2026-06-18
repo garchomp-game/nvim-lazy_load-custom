@@ -1,11 +1,13 @@
 return {
   "aznhe21/actions-preview.nvim",
-  event = "VeryLazy",
   keys = {
-    "<leader>gf"
+    {
+      "<leader>gf",
+      function()
+        require("actions-preview").code_actions()
+      end,
+      mode = { "n", "v" },
+      desc = "コードアクションプレビュー",
+    },
   },
-  config = function()
-    vim.keymap.set({ "v", "n" }, "<leader>gf", require("actions-preview").code_actions)
-  end,
 }
-

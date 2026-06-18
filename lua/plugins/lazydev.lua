@@ -1,4 +1,4 @@
--- neodev.nvimは非推奨 → lazydev.nvimに置換
+-- lazydev.nvim: Neovim Lua 設定向けの補助
 return {
   'folke/lazydev.nvim',
   ft = 'lua',

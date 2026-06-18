@@ -40,8 +40,8 @@ return {
       { '<F10>',      function() require('dap').step_over() end,         desc = 'デバッグ: ステップオーバー' },
       { '<F11>',      function() require('dap').step_into() end,         desc = 'デバッグ: ステップイン' },
       { '<F12>',      function() require('dap').step_out() end,          desc = 'デバッグ: ステップアウト' },
-      { '<leader>b',  function() require('dap').toggle_breakpoint() end, desc = 'ブレークポイント' },
-      { '<leader>B',  function()
+      { '<leader>db', function() require('dap').toggle_breakpoint() end, desc = 'ブレークポイント' },
+      { '<leader>dB', function()
           require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))
         end, desc = '条件付きブレークポイント' },
       { '<leader>dr', function() require('dap').repl.open() end,         desc = 'DAP REPL' },

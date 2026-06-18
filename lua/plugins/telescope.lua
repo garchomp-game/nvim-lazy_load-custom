@@ -1,13 +1,18 @@
 return {
   'nvim-telescope/telescope.nvim',
   event = "VeryLazy",
-  config = function()
-    local builtin = require('telescope.builtin')
-    vim.keymap.set('n', '<space>ff', builtin.find_files, {})
-    vim.keymap.set('n', '<space>fg', builtin.live_grep, {})
-    vim.keymap.set('n', '<space>fb', builtin.buffers, {})
-    vim.keymap.set('n', '<space>fh', builtin.help_tags, {})
-  end,
+  keys = {
+    { '<leader>ff', function() require('telescope.builtin').find_files() end, desc = 'ファイル検索' },
+    { '<leader>fg', function() require('telescope.builtin').live_grep() end, desc = '全文検索' },
+    { '<leader>fb', function() require('telescope.builtin').buffers() end, desc = 'buffer検索' },
+    { '<leader>fh', function() require('telescope.builtin').help_tags() end, desc = 'help検索' },
+    { '<leader>fr', function() require('telescope.builtin').oldfiles() end, desc = '最近のファイル' },
+    { '<leader>fw', function() require('telescope.builtin').grep_string() end, desc = 'カーソル下の単語を検索' },
+    { '<leader>f/', function() require('telescope.builtin').current_buffer_fuzzy_find() end, desc = '現在buffer内を検索' },
+    { '<leader>fk', function() require('telescope.builtin').keymaps() end, desc = 'キーマップ検索' },
+    { '<leader>fc', function() require('telescope.builtin').commands() end, desc = 'コマンド検索' },
+    { '<leader>fd', function() require('telescope.builtin').diagnostics() end, desc = '診断検索' },
+  },
   opts = {
     defaults = {
       -- Default configuration for telescope goes here:

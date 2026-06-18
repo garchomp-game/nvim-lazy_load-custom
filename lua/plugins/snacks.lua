@@ -4,10 +4,9 @@ return {
   'folke/snacks.nvim',
   lazy = false,
   priority = 1000,
-  ---@type snacks.Config
   opts = {
-    -- 通知システム（nvim-notify の代替）
-    notifier = { enabled = true },
+    -- 通知ポップアップは :messages / CopyMessage の確認を邪魔しやすいため無効化
+    notifier = { enabled = false },
     -- 大きなファイルの高速表示
     quickfile = { enabled = true },
     -- モダンなステータスカラム
@@ -20,7 +19,7 @@ return {
     input = { enabled = false },
   },
   keys = {
-    { ']]', function() Snacks.words.jump(vim.v.count1) end, desc = '次の参照', mode = { 'n', 't' } },
-    { '[[', function() Snacks.words.jump(-vim.v.count1) end, desc = '前の参照', mode = { 'n', 't' } },
+    { ']]', function() require('snacks').words.jump(vim.v.count1) end, desc = '次の参照', mode = { 'n', 't' } },
+    { '[[', function() require('snacks').words.jump(-vim.v.count1) end, desc = '前の参照', mode = { 'n', 't' } },
   },
 }

@@ -1,102 +1,133 @@
-# nvIm-lazy_load-custom
+# nvim-lazy_load-custom
 
-`nvim-lazy_load-custom` is a starter kit for Neovim that primarily focuses on plugin management and optimizing startup time. It comes pre-setup with various plugins.
+普段使い向けの Neovim 設定です。`lazy.nvim` でプラグインを管理しつつ、Neovim 0.11+ の標準機能に寄せています。
 
-## Features
+## 方針
 
-- Fast startup time
-- Easy and intuitive plugin management
-- Delayed loading based on `lazy.nvim`
+- マウスは無効
+- ActivityBar は使わない
+- LSP は `nvim-lspconfig` ではなく Neovim 標準の `vim.lsp.config` / `vim.lsp.enable`
+- Treesitter は `nvim-treesitter` を使わず、Neovim 標準の `vim.treesitter.start()`
+- formatter は `conform.nvim`
+- lint は `nvim-lint`
+- 補完は `blink.cmp`
+- buffer tab は `bufferline.nvim`
+- Lua LS の plugin 型補助は `lazydev.nvim` に寄せ、plugin API は原則 `require(...)` で明示
+- 通知ポップアップは無効化し、`:messages` / `:CopyMessage` を見やすくする
 
-## Installation
+## Requirements
 
-You can install `nvim-lazy_load-custom` with the following steps:
+- Neovim 0.11+
+- Git
+- ripgrep (`rg`)
+- Node.js / npm
+- unzip, curl or wget
+- Nerd Font
 
-```bash
-git clone https://github.com/garchomp-game/nvim-lazy_load-custom ~/.config/nvim
-```
+LSP server / formatter / linter / debug adapter は `mason.nvim` と `mason-tool-installer.nvim` で管理します。
 
-## Usage
+## Keymaps
 
-After installation, you can start using it immediately with nvim.
+Leader key は `<Space>` です。
 
-Plugins can be added as follows:
+### File Tree
 
-```lua
-return {
-    'username/repositoryname',
-    config = function()
-        -- more configuration
-    end,
-    opts = {
-        -- more options...
-    },
-}
-```
+| Key | Action |
+|---|---|
+| `<C-n>` | ファイルツリーを開閉 |
+| `<leader>e` | ファイルツリーを開閉 |
+| `<leader>E` | 現在のファイルをツリーで表示 |
+| `<leader>o` | ファイルツリーへ移動 |
+| `<leader>be` | bufferツリーを開閉 |
+| `<leader>ge` | Git statusツリーを開閉 |
 
-If there are dependencies for specific plugins, you can group them together like this:
-```lua
-return {
-    {
-        'username/repositoryname',
-        config = function()
-            -- more configuration
-        end,
-        opts = {
-            -- more options...
-        },
-    },
-    {
-        'username/repositoryname2',
-        config = function()
-            -- more configuration
-        end,
-        opts = {
-            -- more options...
-        },
-    }
-}
-```
+### Buffers
 
-## Project Structure and Settings
+| Key | Action |
+|---|---|
+| `<Tab>` | 次のbufferへ |
+| `<S-Tab>` | 前のbufferへ |
+| `<leader>bn` | 次のbufferへ |
+| `<leader>bp` | 前のbufferへ |
+| `<leader>bf` | bufferを選択 |
+| `<leader>bd` | 現在のbufferを閉じる |
+| `<leader>bD` | 他のbufferを閉じる |
 
-### Plugin Management
+### Find
 
-- **plugins folder**: In this project, plugins such as `treesitter`, `mason`, `null-ls` are managed within the `plugins` folder. The configuration for each plugin is done in the corresponding files within this folder.
+| Key | Action |
+|---|---|
+| `<leader>ff` | ファイル検索 |
+| `<leader>fg` | 全文検索 |
+| `<leader>fb` | buffer検索 |
+| `<leader>fh` | help検索 |
+| `<leader>fr` | 最近のファイル |
+| `<leader>fw` | カーソル下の単語を検索 |
+| `<leader>f/` | 現在buffer内を検索 |
+| `<leader>fk` | キーマップ検索 |
+| `<leader>fc` | コマンド検索 |
+| `<leader>fd` | 診断検索 |
 
-### Key Mappings
+### Terminal
 
-- **Plugin-related key mappings**: Key mappings related to plugins are primarily set in the `plugins` folder.
-- **Basic key mappings and options**: General key mappings and Neovim options are listed in `lua/config/mappings.lua` and `lua/config/option.lua`.
+| Key | Action |
+|---|---|
+| `<C-\>` | ターミナルを開閉 |
+| `<leader>tt` | ターミナルを開閉 |
+| `<leader>th` | 水平ターミナルを開閉 |
+| `<leader>tv` | 垂直ターミナルを開閉 |
+| `<leader>tf` | フロートターミナルを開閉 |
+| `<leader>ta` | 全ターミナルを開閉 |
 
-### LSP and Treesitter Settings
+### Code
 
-- **LSP (Language Server Protocol)**: LSP related settings are managed in the `mason-lspconfig` within the `plugins/mason.lua` file. Additionally, configurations not covered by `mason-lspconfig` are handled in `null-ls.lua`.
-- **Treesitter**: The settings for `nvim-treesitter` are defined within its configuration file, including custom settings such as `blade`.
+| Key | Action |
+|---|---|
+| `<leader>f` | format |
+| `<leader>cf` | format |
+| `<leader>ca` | code action |
+| `<leader>gf` | code action preview |
+| `<leader>rn` | rename |
+| `gd` | 定義へ移動 |
+| `gD` | 宣言へ移動 |
+| `gy` | 型定義へ移動 |
+| `gi` | 実装へ移動 |
+| `gr` | 参照一覧 |
+| `K` | hover |
 
-### Plugin Usage
+`=` は Vim 標準のインデント操作として残しています。
 
-- For detailed usage and configuration of plugins, please refer to the official websites of each plugin. They often provide more comprehensive information and examples.
+### Debug
 
-## Dependencies
+| Key | Action |
+|---|---|
+| `<F5>` | デバッグ開始/続行 |
+| `<F10>` | ステップオーバー |
+| `<F11>` | ステップイン |
+| `<F12>` | ステップアウト |
+| `<leader>db` | ブレークポイント |
+| `<leader>dB` | 条件付きブレークポイント |
+| `<leader>dr` | DAP REPL |
+| `<leader>dl` | 最後のデバッグを再実行 |
+| `<leader>du` | DAP UI を開閉 |
+| `<leader>de` | 式を評価 |
 
-- Neovim (version 0.7.0 or higher recommended)
-- Git: Necessary for installing and updating plugins
-- ripgrep (rg): Used for enhancing search capabilities in `telescope` and other plugins
-- Node.js: Required for `nvim-treesitter` and Node.js based LSP
-- Python: Needed for Python-based LSP and plugins
-- Neovim Python Client: Required for Python plugins as indicated by `:checkhealth` warnings
-- Neovim Ruby Client: Necessary for Ruby-based plugins
-- Neovim Node.js Client: Required for Node.js-based plugins
+### Shakyo
 
-## Contributing
+| Key | Action |
+|---|---|
+| `<leader>sr` | 写経開始 |
+| `<leader>sq` | 写経終了 |
+| `<leader>sc` | 写経ヒント |
 
-If you are interested in contributing to the project, please do so through GitHub Issues or Pull Requests.
+## Notes
+
+- `nvim-treesitter` を外しているため、parser がない filetype では Treesitter を開始しません。
+- Neovim 標準の Lua ftplugin は parser がない環境でも落ちないよう、`vim.treesitter.start()` をガードしています。
+- `snacks.nvim` は words / indent / statuscolumn などを使い、notifier は無効にしています。
+- `lazydev.nvim` は Neovim Lua 設定の解析補助として使い、サードパーティ plugin の呼び出しは `require(...)` に寄せています。
+- `winresizer` は `<leader>wR` から起動します。`<leader>e` は Neo-tree 用です。
 
 ## License
 
-This project is released under the [MIT License](LICENSE).
-
-## Contact
-
-For any questions, please contact us through GitHub Issues.
+MIT License

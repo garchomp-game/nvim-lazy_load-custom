@@ -1,19 +1,18 @@
 return {
   'NI57721/vim-shakyo',
-  event = "VeryLazy",
-  keys = { '<leader>r', '<leader>q', '<leader>c' },
+  keys = {
+    { '<leader>sr', '<Plug>(shakyo-run)', desc = '写経開始', remap = true },
+    { '<leader>sq', '<Plug>(shakyo-quit)', desc = '写経終了', remap = true },
+    { '<leader>sc', '<Plug>(shakyo-clue)', desc = '写経ヒント', remap = true },
+  },
   config = function()
-    -- キーマッピングの設定
-    vim.api.nvim_set_keymap('n', '<leader>r', '<Plug>(shakyo-run)', { noremap = false, silent = true })
-    vim.api.nvim_set_keymap('n', '<leader>q', '<Plug>(shakyo-quit)', { noremap = false, silent = true })
-    vim.api.nvim_set_keymap('n', '<leader>c', '<Plug>(shakyo-clue)', { noremap = false, silent = true })
     -- カスタムハイライトグループの宣言
     local shakyoCompletedHighlight = "ShakyoCompleted"
     local shakyoWrongHighlight = "ShakyoWrong"
 
     -- カスタムハイライトグループの設定
-    vim.cmd('hi ' .. shakyoCompletedHighlight .. ' guifg=#ffffff guibg=#ffff00')
-    vim.cmd('hi ' .. shakyoWrongHighlight .. ' guifg=#ffffff guibg=#ff0000')
+    vim.api.nvim_set_hl(0, shakyoCompletedHighlight, { fg = '#ffffff', bg = '#ffff00' })
+    vim.api.nvim_set_hl(0, shakyoWrongHighlight, { fg = '#ffffff', bg = '#ff0000' })
 
     -- shakyoプラグインのハイライト設定をカスタムグループに変更
     vim.fn['shakyo#config']({

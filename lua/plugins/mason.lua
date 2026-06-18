@@ -51,8 +51,6 @@ return {
 		},
 		opts = {
 			ensure_installed = {
-				-- パーサービルド
-				"tree-sitter-cli", -- nvim-treesitter(main) の parser ビルドに必須
 				-- フォーマッタ
 				"stylua", -- Lua (conform.nvim)
 				"biome", -- JS/TS/JSON (conform.nvim + nvim-lint)

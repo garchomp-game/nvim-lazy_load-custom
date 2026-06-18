@@ -1,5 +1,4 @@
--- blink.cmp: 高速な補完エンジン（Rust製）
--- nvim-cmp + 11個のソースプラグインを1つに統合
+-- blink.cmp: 高速な補完エンジン
 return {
   'saghen/blink.cmp',
   event = "VeryLazy",
